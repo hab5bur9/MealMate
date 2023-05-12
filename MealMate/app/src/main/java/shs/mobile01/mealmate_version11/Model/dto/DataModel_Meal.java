@@ -22,7 +22,7 @@ public class DataModel_Meal {
     public void setFood_index(int food_index){this.food_index=food_index;}
     public void setMeal_amount(int meal_amount){this.meal_amount=meal_amount;}
 
-
+    // 안녕하세요 존잘남입니다.
     public DataModel_Meal(int index,int datetime, int mealTime, int food_index,int meal_amount ){
         this.index=index;
         this.datetime=datetime;
