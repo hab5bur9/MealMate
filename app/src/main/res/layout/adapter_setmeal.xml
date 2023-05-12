@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/setMealName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="식단 구분 TextView"
+        />
+    <ListView
+        android:id="@+id/listView_setFood"
+        android:layout_width="match_parent"
+        android:layout_height="500px"
+        />
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="생성"/>
+    <Button
+        android:id ="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="삭제"/>
+
+</LinearLayout>

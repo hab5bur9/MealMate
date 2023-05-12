@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/dateTimeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00년 00일"
+        />
+    <ListView
+        android:id="@+id/listView_meal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/recordMealButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="식단 기록 / 변경"
+        android:onClick="onClickToStartActivity"/>
+
+
+</LinearLayout>

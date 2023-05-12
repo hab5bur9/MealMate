@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#50b0b6"
+    android:orientation="vertical"
+    android:id="@+id/backgroundLayout">
+    <TextView
+        android:id="@+id/foodInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="식단 정보"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/foodList"/>
+    <TextView
+        android:id="@+id/foodList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. 메뉴 1 \n2. 메뉴 2 \n3. 메뉴 3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/foodInfo"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+        android:id="@+id/btnCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="체크 버튼"
+        android:onClick="onClickToStartActivity"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
