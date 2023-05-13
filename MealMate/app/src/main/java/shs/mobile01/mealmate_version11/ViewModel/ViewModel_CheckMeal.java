@@ -12,7 +12,5 @@ public class ViewModel_CheckMeal{
         this.repository_meal = repository_meal;
     }
 
-    public void onChecked(View view){
 
-    }
 }

@@ -1,6 +1,6 @@
 package shs.mobile01.mealmate_version11.Model.dto;
 
-import androidx.annotation.Nullable;
+
 
 public class DataModel_Meal {
 

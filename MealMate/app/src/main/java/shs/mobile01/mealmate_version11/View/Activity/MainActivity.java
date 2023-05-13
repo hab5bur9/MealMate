@@ -2,9 +2,16 @@ package shs.mobile01.mealmate_version11.View.Activity;
 
 import android.os.Bundle;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import shs.mobile01.mealmate_version11.Model.dao.Repository_Food;
+import shs.mobile01.mealmate_version11.Model.dao.Repository_Meal;
+import shs.mobile01.mealmate_version11.Model.dao.Repository_User;
 import shs.mobile01.mealmate_version11.R;
+import shs.mobile01.mealmate_version11.ViewModel.ViewModel_CheckMeal;
+import shs.mobile01.mealmate_version11.ViewModel.ViewModel_SetMeal;
+import shs.mobile01.mealmate_version11.ViewModel.ViewModel_UserInfo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,5 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Repository_Meal repository_meal = new Repository_Meal();
+        Repository_Food repository_food = new Repository_Food();
+        Repository_User repository_user = new Repository_User();
+
+        new ViewModel_CheckMeal(repository_meal);
+        new ViewModel_SetMeal(repository_meal,repository_food);
+        new ViewModel_UserInfo(repository_user);
+
+
     }
 }
