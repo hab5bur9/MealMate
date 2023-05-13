@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
 import shs.mobile01.mealmate_version11.R;
 
 public class SetMealAdapter extends ArrayAdapter {
@@ -19,12 +20,15 @@ public class SetMealAdapter extends ArrayAdapter {
     private ArrayList<SetFoodAdapter> view_list;
     ArrayList<String> sampleFood1 = new ArrayList<>(Arrays.asList("닭가슴살","20","80","20","100"));
 
+    ArrayList<DataModel_Meal> mealList;
+
 
 
     public SetMealAdapter(@NonNull Context context, int resource, ArrayList<SetFoodAdapter> view_list) {
         super(context, resource);
         this.view_list = view_list;
     }
+
 
     @Override
     public int getCount() {
