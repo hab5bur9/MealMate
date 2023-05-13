@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import shs.mobile01.mealmate_version11.R;
+
 public class SetMealAdapter extends ArrayAdapter {
     private View ex;
     private ArrayList<SetFoodAdapter> view_list;

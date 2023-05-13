@@ -8,6 +8,10 @@ public class Repository_Meal extends DataBase{
 
     private ArrayList<DataModel_Meal> dm ;
 
+
+    public Repository_Meal(){
+
+    }
     public void setMealList(int datetime){
 
     }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import shs.mobile01.mealmate_version11.R;
 import java.util.ArrayList;
 
 public class MealAdapter extends BaseAdapter {

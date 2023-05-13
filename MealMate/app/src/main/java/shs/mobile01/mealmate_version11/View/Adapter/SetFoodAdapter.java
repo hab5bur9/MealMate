@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import shs.mobile01.mealmate_version11.R;
 
 public class SetFoodAdapter extends ArrayAdapter {
     private View ex ;

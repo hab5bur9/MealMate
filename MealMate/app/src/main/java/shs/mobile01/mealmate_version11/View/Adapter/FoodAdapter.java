@@ -3,7 +3,7 @@ package shs.mobile01.mealmate_version11.View.Adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
+import shs.mobile01.mealmate_version11.R;
 import java.util.ArrayList;
 
 public class FoodAdapter extends BaseAdapter {
