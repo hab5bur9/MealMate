@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DataBase extends SQLiteOpenHelper{
 
-    private SQLiteDatabase sqlDB;
+    private SQLiteDatabase sqlDB = getWritableDatabase();
     private static ArrayList<String> DBInstance;
 
 
@@ -18,19 +18,26 @@ public class DataBase extends SQLiteOpenHelper{
     public static final int DATABASE_MODE_UPDATE = 2;
     public static final int DATABASE_MODE_INSERT = 3;
 
-    public static final String DATABASE_TABLE_MEAL = "MEAL_TABLE";
+    public static final String DATABASE_NAME = "meal_mate";
+    public static final String TABLE_MEAL = "MEAL_TABLE";
+    public static final String TABLE_FOOD = "FOOD_TABLE";
+    public static final String TABLE_USER = "USER_TABLE";
 
-    public static final String DATABASE_TABLE_FOOD = "FOOD_TABLE";
-    public static final String DATABASE_TABLE_USER = "USER_TABLE";
+//    private static final String COLUMN_MEAL_INDEX = "meal_index";
+//    private static final String COLUMN_MEAL_DATE = "meal_date";
+//    private static final String COLUMN_MEAL_CNT = "meal_cnt";
+//    private static final String COLUMN_MEAL_FOOD_AMOUNT="meal_food_amount";
+//    private static final String COLUMN_FOOD_INDEX ="food_index";
+
 
 
     private static final int DATABASE_VERSION = 1;
 
-    public DataBase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
+//    public DataBase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+//        super(context, name, factory, version);
+//    }
     public DataBase(@Nullable Context context){
-        super(context,"name",null,DATABASE_VERSION);
+        super(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
 
 
@@ -46,13 +53,13 @@ public class DataBase extends SQLiteOpenHelper{
                 " food_carbohydrates FLOAT, food_protein FLOAT,food_fat FLOAT,food_favorite INTEGER ,food_API_code TEXT)";
         db.execSQL(createFoodTableQuery);
         //식단 기록 테이블 쿼리문
-        String createMealLogQuery="CREATE TABLE meal_Log(meal_index INTEGER PRIMARY KEY,meal_date DATE,meal_cnt INTEGER,meal_food_amount INTEGER,food_index INTEGER)";
+        String createMealLogQuery="CREATE TABLE meal_Log(meal_index INTEGER PRIMARY KEY,meal_date DATE,meal_cnt INTEGER,meal_food_amount INTEGER,food_index INTEGER )";
         db.execSQL(createMealLogQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        
+        db.execSQL("DROP TABLE IF EXISTS "+DATABASE_NAME);
         onCreate(db);
     }
 
@@ -72,8 +79,5 @@ public class DataBase extends SQLiteOpenHelper{
             sql+="WHERE "+condition;
 
         return sql;
-    }
-    private void createTable(){
-        String user = "CREATE TABLE";
     }
 }
