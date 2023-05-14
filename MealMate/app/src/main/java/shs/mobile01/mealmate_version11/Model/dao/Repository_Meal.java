@@ -3,6 +3,7 @@ package shs.mobile01.mealmate_version11.Model.dao;
 import java.util.ArrayList;
 
 import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
+import shs.mobile01.mealmate_version11.Model.dto.DataModel_User;
 
 public class Repository_Meal {
 
@@ -13,12 +14,12 @@ public class Repository_Meal {
         // 초기값 설정
         this.dataBase = dataBase;
 
-        LoadMealList(20);
+        loadMealList(20);
     }
     public Repository_Meal(){//testing constructor
-
+        loadMealList(3);
     }
-    private void LoadMealList(int datetime){
+    private void loadMealList(int datetime){ //test
         // 날짜를 입력받아서 해당 날짜의 식단정보를 로딩
         dataModel_meals = new ArrayList<>();
         for(int i=0;i<3;i++){
@@ -28,8 +29,11 @@ public class Repository_Meal {
         }
     }
 
-    public void meal_Configuration(){
-
+    public void meal_Configuration(int meal_num){
+        for(int i=0;i<dataModel_meals.size();i++)
+            if(dataModel_meals.get(i).getMealTime()==meal_num)
+                dataModel_meals.get(i).onCheckedChange();
+        dataBase.uploadDB("MEAL_TABLE", dataBase.DATABASE_MODE_UPDATE,null);
     }
 
     public ArrayList<DataModel_Meal> getMealList(){

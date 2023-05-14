@@ -17,7 +17,7 @@ public class ViewModel_CheckMeal{
     }
 
     public void checkMeal(){
-        int mealTime;
-        repository_meal.meal_Configuration();
+        int mealTime=2;
+        repository_meal.meal_Configuration(mealTime);
     }
 }

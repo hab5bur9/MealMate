@@ -34,4 +34,10 @@ public class DataModel_Meal {
         this.meal_amount=meal_amount;
         this.checked=checked;
     }
+    public void onCheckedChange(){
+        if (checked==false)
+            checked=true;
+        else
+            checked=false;
+    }
 }
