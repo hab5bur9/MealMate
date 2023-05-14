@@ -1,6 +1,7 @@
 package shs.mobile01.mealmate_version11.Model.dto;
 
 
+import java.util.ArrayList;
 
 public class DataModel_Meal {
 
@@ -39,5 +40,10 @@ public class DataModel_Meal {
             checked=true;
         else
             checked=false;
+    }
+    public ArrayList<String> getDBString(){
+        ArrayList<String> data = new ArrayList<>();
+
+        return data;
     }
 }
