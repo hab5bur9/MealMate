@@ -3,7 +3,7 @@ package shs.mobile01.mealmate_version11.Model.dao;
 import java.util.ArrayList;
 
 import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_User;
+
 
 public class Repository_Meal {
 
@@ -33,7 +33,7 @@ public class Repository_Meal {
         for(int i=0;i<dataModel_meals.size();i++)
             if(dataModel_meals.get(i).getMealTime()==meal_num)
                 dataModel_meals.get(i).onCheckedChange();
-        dataBase.uploadDB(dataBase.DATABASE_TABLE_MEAL, dataBase.DATABASE_MODE_UPDATE,null);
+        dataBase.uploadDB(DataBase.DATABASE_TABLE_MEAL, DataBase.DATABASE_MODE_UPDATE,null);
     }
 
     public ArrayList<DataModel_Meal> getMealList(){

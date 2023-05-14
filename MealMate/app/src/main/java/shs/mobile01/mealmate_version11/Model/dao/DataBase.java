@@ -8,15 +8,18 @@ import android.database.sqlite.*;
 import androidx.annotation.Nullable;
 
 public class DataBase extends SQLiteOpenHelper{
+
+    private SQLiteDatabase sqlDB;
     private static ArrayList<String> DBInstance;
 
-    public final int DATABASE_MODE_SELECT = 1;
-    public final int DATABASE_MODE_UPDATE = 2;
-    public final int DATABASE_MODE_INSERT = 3;
 
-    public final String DATABASE_TABLE_MEAL = "MEAL_TABLE";
-    public final String DATABASE_TABLE_FOOD = "FOOD_TABLE";
-    public final String DATABASE_TABLE_USER = "USER_TABLE";
+    public static final int DATABASE_MODE_SELECT = 1;
+    public static final int DATABASE_MODE_UPDATE = 2;
+    public static final int DATABASE_MODE_INSERT = 3;
+
+    public static final String DATABASE_TABLE_MEAL = "MEAL_TABLE";
+    public static final String DATABASE_TABLE_FOOD = "FOOD_TABLE";
+    public static final String DATABASE_TABLE_USER = "USER_TABLE";
 
     public DataBase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -51,5 +54,8 @@ public class DataBase extends SQLiteOpenHelper{
             sql+="WHERE "+condition;
 
         return sql;
+    }
+    private void createTable(){
+        String user = "CREATE TABLE";
     }
 }
