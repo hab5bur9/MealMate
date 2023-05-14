@@ -21,6 +21,9 @@ public class DataBase extends SQLiteOpenHelper{
     public static final String DATABASE_TABLE_FOOD = "FOOD_TABLE";
     public static final String DATABASE_TABLE_USER = "USER_TABLE";
 
+    private final String TABLE_NAME = DATABASE_TABLE_MEAL;
+    
+
     public DataBase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -46,9 +49,9 @@ public class DataBase extends SQLiteOpenHelper{
     private String makeSQLString(String table, int mode, @Nullable  String condition){
         String sql = "";
         switch (mode){
-            case DATABASE_MODE_SELECT: sql+="SELECT * FROM table "; break;
-            case DATABASE_MODE_UPDATE: sql+="UPDATE table SET "; break;
-            case DATABASE_MODE_INSERT: sql+="INSERT INTO table "; break;
+            case DATABASE_MODE_SELECT: sql+="SELECT * FROM "+table; break;
+            case DATABASE_MODE_UPDATE: sql+="UPDATE "+table+" SET "; break;
+            case DATABASE_MODE_INSERT: sql+="INSERT INTO "+table; break;
         }
         if( condition!=null)
             sql+="WHERE "+condition;
