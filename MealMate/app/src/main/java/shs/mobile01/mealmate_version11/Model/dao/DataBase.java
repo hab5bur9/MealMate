@@ -14,6 +14,10 @@ public class DataBase extends SQLiteOpenHelper{
     public final int DATABASE_MODE_UPDATE = 2;
     public final int DATABASE_MODE_INSERT = 3;
 
+    public final String DATABASE_TABLE_MEAL = "MEAL_TABLE";
+    public final String DATABASE_TABLE_FOOD = "FOOD_TABLE";
+    public final String DATABASE_TABLE_USER = "USER_TABLE";
+
     public DataBase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }

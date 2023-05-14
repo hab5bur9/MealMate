@@ -33,7 +33,7 @@ public class Repository_Meal {
         for(int i=0;i<dataModel_meals.size();i++)
             if(dataModel_meals.get(i).getMealTime()==meal_num)
                 dataModel_meals.get(i).onCheckedChange();
-        dataBase.uploadDB("MEAL_TABLE", dataBase.DATABASE_MODE_UPDATE,null);
+        dataBase.uploadDB(dataBase.DATABASE_TABLE_MEAL, dataBase.DATABASE_MODE_UPDATE,null);
     }
 
     public ArrayList<DataModel_Meal> getMealList(){
