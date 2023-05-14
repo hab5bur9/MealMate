@@ -11,9 +11,11 @@ public class DataModel_User {
     public final int GENDER_MALE = 1;
     public final int GENDER_FEMALE = 2;
 
-    public final int ACTIVITY_RATIO_ROW=1;
-    public final int ACTIVITY_RATIO_MIDDLE=2;
-    public final int ACTIVITY_RATIO_HIGH=3;
+    public final int ACTIVITY_RATIO_NONE=1;
+    public final int ACTIVITY_RATIO_ROW=2;
+    public final int ACTIVITY_RATIO_MIDDLE=3;
+    public final int ACTIVITY_RATIO_HIGH=4;
+    public final int ACTIVITY_RATIO_MAX= 5;
 
     public final int PURPOSE_DIET = 1;
     public final int PURPOSE_MAINTAIN=2;

@@ -30,15 +30,18 @@ public class Repository_Meal {
 //    }
 
     public void meal_Configuration(int meal_num){
+
         for(int i=0;i<dataModel_meals.size();i++)
             if(dataModel_meals.get(i).getMealTime()==meal_num)
                 dataModel_meals.get(i).onCheckedChange();
+
         dataBase.process_to_DB(DataBase.TABLE_MEAL, DataBase.DATABASE_MODE_UPDATE,null);
     }
 
     public ArrayList<DataModel_Meal> getMealList(){
         return dataModel_meals;
     }
+
     private ArrayList<String> make_DB_Data(){
         ArrayList<String> data = new ArrayList<>();
         for(int i=0;i<dataModel_meals.size();i++){

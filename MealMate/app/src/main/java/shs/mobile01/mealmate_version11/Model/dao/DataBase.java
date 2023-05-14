@@ -23,12 +23,11 @@ public class DataBase extends SQLiteOpenHelper{
     public static final String TABLE_FOOD = "FOOD_TABLE";
     public static final String TABLE_USER = "USER_TABLE";
 
-//    private static final String COLUMN_MEAL_INDEX = "meal_index";
+    private static final String COLUMN_MEAL_INDEX = "meal_index";
 //    private static final String COLUMN_MEAL_DATE = "meal_date";
 //    private static final String COLUMN_MEAL_CNT = "meal_cnt";
 //    private static final String COLUMN_MEAL_FOOD_AMOUNT="meal_food_amount";
 //    private static final String COLUMN_FOOD_INDEX ="food_index";
-
 
 
     private static final int DATABASE_VERSION = 1;
