@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23655062075014466" />
+        <entry key="app/src/main/res/layout/activity_setmeal.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/adapter_food.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/adapter_meal.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/layout/adapter_setfood.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/layout/adapter_setmeal.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/layout/fragment_foodlist.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/navigation_4button.xml" value="0.3182291666666667" />
       </map>
     </option>

@@ -10,11 +10,15 @@
         android:layout_height="wrap_content"
         android:text="식단 구분 TextView"
         />
-    <ListView
-        android:id="@+id/listView_setFood"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_setFood"
         android:layout_width="match_parent"
-        android:layout_height="500px"
-        />
+        android:layout_height="500px"/>
+<!--    <ListView-->
+<!--        android:id="@+id/listView_setFood"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="500px"-->
+<!--        />-->
     <Button
         android:id="@+id/btn_create"
         android:layout_width="match_parent"
