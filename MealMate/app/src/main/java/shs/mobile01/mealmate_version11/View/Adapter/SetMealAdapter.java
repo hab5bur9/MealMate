@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,10 +20,13 @@ import java.util.List;
 import shs.mobile01.mealmate_version11.Model.dto.DataModel_Food;
 import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
 import shs.mobile01.mealmate_version11.R;
+import shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal;
 
 public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHolder> {
     // 호출 순서 1. 생성자로 데이터 입력받기 2. getItemCount()로 생성할 뷰의 개수 파악 3. onCreateViewHolder()로 뷰를 count 수 만큼 생성
     public ArrayList<ArrayList<DataModel_Food>> list ; // 테스트 list 추후에 변경
+
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         // 이벤트 리스너 할당등 코드를 모아놓음
@@ -59,6 +63,7 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
     @NonNull
     @Override
     public SetMealAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_setmeal,parent,false);
         return new ViewHolder(view);
     }

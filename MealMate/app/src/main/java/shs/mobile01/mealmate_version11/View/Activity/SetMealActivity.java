@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,30 +21,37 @@ import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
 import shs.mobile01.mealmate_version11.R;
 import shs.mobile01.mealmate_version11.View.Adapter.SetFoodAdapter;
 import shs.mobile01.mealmate_version11.View.Adapter.SetMealAdapter;
+import shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal;
 
 public class SetMealActivity extends AppCompatActivity {
 
+    private ViewModel_SetMeal viewModelSetMeal;
+
     // open test data
-    DataModel_Food dm;
-    ArrayList<DataModel_Food>testData1,testData2,testData3;
-    ArrayList<ArrayList<DataModel_Food>> testData;
-
-    public void loadPreset(){
-        dm = new DataModel_Food(1,1,"food",100,100,100,300,0);
-        testData1 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
-        testData2 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
-        testData3 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
-        testData= new ArrayList<>(Arrays.asList(testData1,testData2,testData3)); ;
-
-    }
+//    DataModel_Food dm;
+//    ArrayList<DataModel_Food>testData1,testData2,testData3;
+//    ArrayList<ArrayList<DataModel_Food>> testData;
+//
+//
+//
+//    public void loadPreset(){
+//        dm = new DataModel_Food(1,1,"food",100,100,100,300,0);
+//        testData1 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
+//        testData2 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
+//        testData3 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
+//        testData= new ArrayList<>(Arrays.asList(testData1,testData2,testData3)); ;
+//
+//    }
     // close test data
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setmeal);
+        //testing method
+//        loadPreset();
 
-        loadPreset();
-
+        //Get ViewModel
+        viewModelSetMeal = new ViewModelProvider(this).get(ViewModel_SetMeal.class);
 
         Intent it = getIntent();
 
@@ -57,7 +65,7 @@ public class SetMealActivity extends AppCompatActivity {
         ((Button)findViewById(R.id.btn_addMealTime)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                testData.add(new ArrayList<>(Arrays.asList(dm,dm,dm,dm)));
+                //testData.add(new ArrayList<>(Arrays.asList(dm,dm,dm,dm)));
                 sma.notifyDataSetChanged();
             }
         });

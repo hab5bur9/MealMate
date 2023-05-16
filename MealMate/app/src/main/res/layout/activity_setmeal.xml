@@ -7,9 +7,6 @@
         <variable
             name ="ViewModel_SetMeal"
             type="shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal"/>
-        <variable
-            name="ViewModel_UserInfo"
-            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_UserInfo"/>
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -34,14 +31,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="save preset" />
+            android:text="save preset"
+            android:onClick="@{ViewModel_SetMeal.savePreset}"/>
 
         <Button
             android:id="@+id/btn_loadPreset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="load preset" />
+            android:text="load preset"
+            android:onClick="@{ViewModel_SetMeal.loadPreset}"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
