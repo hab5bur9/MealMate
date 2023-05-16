@@ -1,5 +1,6 @@
 package shs.mobile01.mealmate_version11.View.Adapter;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -26,7 +27,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
     @NonNull
     @Override
     public FoodAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_food,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -36,7 +38,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 }
 

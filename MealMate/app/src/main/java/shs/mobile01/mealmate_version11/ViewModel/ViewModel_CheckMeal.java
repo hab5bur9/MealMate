@@ -2,13 +2,15 @@ package shs.mobile01.mealmate_version11.ViewModel;
 
 import android.view.View;
 
+import androidx.lifecycle.ViewModel;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import shs.mobile01.mealmate_version11.Model.dao.Repository_Meal;
 import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
 
-public class ViewModel_CheckMeal{
+public class ViewModel_CheckMeal extends ViewModel {
     private Repository_Meal repository_meal;
     private ArrayList<DataModel_Meal> mealList = repository_meal.getMealList(); // 동기화
 

@@ -1,33 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/setMealName"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="ViewModel_SetMeal"
+            type="shs.mobile01.mealmate_version11.ViewModel.ViewModel_SetMeal" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="식단 구분 TextView"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_setFood"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-<!--    <ListView-->
-<!--        android:id="@+id/listView_setFood"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="500px"-->
-<!--        />-->
-    <Button
-        android:id="@+id/btn_create"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="생성"/>
-    <Button
-        android:id ="@+id/btn_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="삭제"/>
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/setMealName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="식단 구분 TextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_setFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/setMealName" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView_setFood">
+
+            <Button
+                android:id="@+id/btn_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="생성"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="삭제"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

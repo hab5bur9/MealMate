@@ -10,10 +10,12 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import shs.mobile01.mealmate_version11.Model.dto.DataModel_Food;
 import shs.mobile01.mealmate_version11.R;
 import shs.mobile01.mealmate_version11.View.Adapter.FoodAdapter;
 
@@ -22,12 +24,20 @@ public class FoodListFragment extends Fragment {
 
     private View foodListFragment;
 
+    // open test data
+    DataModel_Food dm;
+    ArrayList<DataModel_Food>testData1,testData2,testData3;
+    ArrayList<ArrayList<DataModel_Food>> testData;
 
-    ArrayList<String> sampleFood1 = new ArrayList<>(Arrays.asList("닭가슴살","20","80","20","100"));
-    ArrayList<String> sampleFood2 = new ArrayList<>(Arrays.asList("삼겹살", "20","30","50","200"));
-    ArrayList<String> sampleFood3 = new ArrayList<>(Arrays.asList("흰쌀밥","60","10","30","150"));
-    ArrayList<ArrayList> food = new ArrayList<>(Arrays.asList(sampleFood1,sampleFood2,sampleFood3));
+    public void loadPreset(){
+        dm = new DataModel_Food(1,1,"food",100,100,100,300,0);
+        testData1 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
+        testData2 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
+        testData3 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
+        testData= new ArrayList<>(Arrays.asList(testData1,testData2,testData3)); ;
 
+    }
+    // close test data
     public FoodListFragment(){
 
     }
@@ -39,8 +49,8 @@ public class FoodListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         foodListFragment = inflater.inflate(R.layout.fragment_foodlist,container,false);
 
-        FoodAdapter fa = new FoodAdapter(food);
-        ((ListView)foodListFragment.findViewById(R.id.listView_food)).setAdapter(fa);
+        FoodAdapter fa = new FoodAdapter(testData);
+        ((RecyclerView)foodListFragment.findViewById(R.id.recyclerView_food)).setAdapter(fa);
 
 
         return foodListFragment;
