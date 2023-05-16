@@ -5,7 +5,7 @@
     <data>
         <variable
             name="ViewModel_SetMeal"
-            type="shs.mobile01.mealmate_version11.ViewModel.ViewModel_SetMeal" />
+            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

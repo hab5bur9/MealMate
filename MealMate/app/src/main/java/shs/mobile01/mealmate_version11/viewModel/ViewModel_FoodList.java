@@ -1,4 +1,4 @@
-package shs.mobile01.mealmate_version11.ViewModel;
+package shs.mobile01.mealmate_version11.viewModel;
 
 import androidx.lifecycle.ViewModel;
 

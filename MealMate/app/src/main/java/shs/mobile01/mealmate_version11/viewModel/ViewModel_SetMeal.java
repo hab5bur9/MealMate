@@ -1,8 +1,7 @@
-package shs.mobile01.mealmate_version11.ViewModel;
+package shs.mobile01.mealmate_version11.viewModel;
 
 import android.view.View;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;

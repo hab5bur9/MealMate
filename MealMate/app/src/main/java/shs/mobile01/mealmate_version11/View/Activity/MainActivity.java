@@ -1,7 +1,6 @@
 package shs.mobile01.mealmate_version11.View.Activity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,18 +8,11 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import shs.mobile01.mealmate_version11.Model.dao.DataBase;
-import shs.mobile01.mealmate_version11.Model.dao.Repository_Food;
-import shs.mobile01.mealmate_version11.Model.dao.Repository_Meal;
-import shs.mobile01.mealmate_version11.Model.dao.Repository_User;
 import shs.mobile01.mealmate_version11.R;
 import shs.mobile01.mealmate_version11.View.Fragment.CalendarFragment;
 import shs.mobile01.mealmate_version11.View.Fragment.FoodListFragment;
 
 import shs.mobile01.mealmate_version11.View.Fragment.HomeFragment;
-import shs.mobile01.mealmate_version11.ViewModel.ViewModel_CheckMeal;
-import shs.mobile01.mealmate_version11.ViewModel.ViewModel_SetMeal;
-import shs.mobile01.mealmate_version11.ViewModel.ViewModel_UserInfo;
 
 public class MainActivity extends AppCompatActivity {
 

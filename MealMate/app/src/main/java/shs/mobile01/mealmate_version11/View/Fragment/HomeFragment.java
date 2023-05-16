@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment {
 
         // 데베에서 오늘날짜 식단 정보 받아와서 arraylist에 저장하는 코드 작성
 
-        MealAdapter ma = new MealAdapter(food);
+        //MealAdapter ma = new MealAdapter(food);
 
         return home;
     }

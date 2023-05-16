@@ -1,11 +1,10 @@
-package shs.mobile01.mealmate_version11.ViewModel;
+package shs.mobile01.mealmate_version11.viewModel;
 
 import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import shs.mobile01.mealmate_version11.Model.dao.Repository_Meal;
 import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;

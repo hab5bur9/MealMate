@@ -6,7 +6,7 @@
 
         <variable
             name="ViewModel_CheckMeal"
-            type="shs.mobile01.mealmate_version11.ViewModel.ViewModel_CheckMeal" />
+            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_CheckMeal" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +21,8 @@
 
         <include
             layout="@layout/include_meallist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
