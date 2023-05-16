@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //init process
-          DataBase dataBase = new DataBase(this); // 수정 필요
+//          DataBase dataBase = new DataBase(this); // 수정 필요
 //
 //        Repository_Meal repository_meal = new Repository_Meal(dataBase);
 //        Repository_Food repository_food = new Repository_Food(dataBase);
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 //        new ViewModel_CheckMeal(repository_meal);
 //        new ViewModel_SetMeal(repository_meal,repository_food);
 //        new ViewModel_UserInfo(repository_user);
-
-
+//
+//
 //        Repository_Meal repository_meal = new Repository_Meal();
 //        new ViewModel_CheckMeal(repository_meal);
 

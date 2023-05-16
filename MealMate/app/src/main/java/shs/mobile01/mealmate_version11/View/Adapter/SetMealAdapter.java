@@ -22,7 +22,7 @@ import shs.mobile01.mealmate_version11.R;
 
 public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHolder> {
     // 호출 순서 1. 생성자로 데이터 입력받기 2. getItemCount()로 생성할 뷰의 개수 파악 3. onCreateViewHolder()로 뷰를 count 수 만큼 생성
-    public static ArrayList<ArrayList<DataModel_Food>> list ; // 테스트 list 추후에 변경
+    public ArrayList<ArrayList<DataModel_Food>> list ; // 테스트 list 추후에 변경
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         // 이벤트 리스너 할당등 코드를 모아놓음
@@ -32,10 +32,11 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             rv =  itemView.findViewById(R.id.recyclerView_setFood);
-            btnCreate = itemView.findViewById(R.id.btn_create);
-            btnDelete = itemView.findViewById(R.id.btn_delete);
             rv.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
             rv.scrollToPosition(((LinearLayoutManager)rv.getLayoutManager()).findFirstCompletelyVisibleItemPosition());
+
+            btnCreate = itemView.findViewById(R.id.btn_create);
+            btnDelete = itemView.findViewById(R.id.btn_delete);
 
         }
         public RecyclerView getRv() {
@@ -43,6 +44,10 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
         }
         public Button getBtnCreate(){
             return btnCreate;
+        }
+
+        public Button getBtnDelete() {
+            return btnDelete;
         }
     }
 
@@ -63,12 +68,20 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
         SetFoodAdapter sfa = new SetFoodAdapter(list.get(position));
         holder.getRv().setAdapter(sfa);
 
-
-        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+        holder.getBtnDelete().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 list.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
+            }
+        });
+
+        holder.getBtnCreate().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //test
+                sfa.list.add(new DataModel_Food(1,1,"food",100,100,100,300,0));
+                sfa.notifyDataSetChanged();
             }
         });
     }
@@ -76,11 +89,11 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
     @Override
     public int getItemCount() {
         // 리사이클러 뷰의 인덱스 개수 만큼 생성받기 위한 리턴
-        //return list.size();
         return list.size();
     }
 
 }
+
 //public class SetMealAdapter extends ArrayAdapter {
 //    private View ex;
 //    private ArrayList<SetFoodAdapter> view_list;

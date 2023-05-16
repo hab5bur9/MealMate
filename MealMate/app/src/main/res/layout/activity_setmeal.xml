@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name ="ViewModel_SetMeal"
+            type="shs.mobile01.mealmate_version11.ViewModel.ViewModel_SetMeal"/>
+        <variable
+            name="ViewModel_UserInfo"
+            type="shs.mobile01.mealmate_version11.ViewModel.ViewModel_UserInfo"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -41,15 +51,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/layout_preset"
         />
-<!--    <ListView-->
-<!--        android:id="@+id/listView_setMeal"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/layout_preset"-->
-
-<!--        />-->
 
     <Button
+        android:onClick="@{ViewModel_SetMeal.addMealTime}"
         android:id="@+id/btn_addMealTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,3 +61,5 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

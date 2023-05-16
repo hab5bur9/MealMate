@@ -65,6 +65,8 @@ public class DataBase extends SQLiteOpenHelper{
 
     public void process_to_DB(String table,int mode,@Nullable String condition){
         String sql = makeSQLString(table,mode,condition);
+
+
     }
 
     private String makeSQLString(String table, int mode, @Nullable  String condition){

@@ -22,10 +22,12 @@ import shs.mobile01.mealmate_version11.View.Adapter.SetFoodAdapter;
 import shs.mobile01.mealmate_version11.View.Adapter.SetMealAdapter;
 
 public class SetMealActivity extends AppCompatActivity {
-    private final int adapterNum = 3;
+
+    // open test data
     DataModel_Food dm;
     ArrayList<DataModel_Food>testData1,testData2,testData3;
     ArrayList<ArrayList<DataModel_Food>> testData;
+
     public void loadPreset(){
         dm = new DataModel_Food(1,1,"food",100,100,100,300,0);
         testData1 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
@@ -34,6 +36,7 @@ public class SetMealActivity extends AppCompatActivity {
         testData= new ArrayList<>(Arrays.asList(testData1,testData2,testData3)); ;
 
     }
+    // close test data
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +52,6 @@ public class SetMealActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(sma);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.scrollToPosition(((LinearLayoutManager)mRecyclerView.getLayoutManager()).findFirstCompletelyVisibleItemPosition());
-
-//        sma = new SetMealAdapter(this,SetMealAdapter.IGNORE_ITEM_VIEW_TYPE,sfa);
-//
-//
-//        ((ListView)findViewById(R.id.listView_setMeal)).setAdapter(sma);
-
 
 
         ((Button)findViewById(R.id.btn_addMealTime)).setOnClickListener(new View.OnClickListener() {
@@ -74,16 +71,5 @@ public class SetMealActivity extends AppCompatActivity {
         });
     }
 
-
-
-//    ArrayList<SetFoodAdapter> sfa = new ArrayList<>();
-//
-//    ArrayList<String> sampleFood1 = new ArrayList<>(Arrays.asList("닭가슴살","20","80","20","100"));
-//    ArrayList<String> sampleFood2 = new ArrayList<>(Arrays.asList("삼겹살", "20","30","50","200"));
-//    ArrayList<String> sampleFood3 = new ArrayList<>(Arrays.asList("흰쌀밥","60","10","30","150"));
-//    ArrayList<ArrayList> food1= new ArrayList<>(Arrays.asList(sampleFood1,sampleFood2,sampleFood3));
-//    ArrayList<ArrayList> food2 = new ArrayList<>(Arrays.asList(sampleFood1,sampleFood2,sampleFood3));
-//    ArrayList<ArrayList> food3 = new ArrayList<>(Arrays.asList(sampleFood1,sampleFood2,sampleFood3));
-//    ArrayList<ArrayList<ArrayList>> preset = new ArrayList<>(Arrays.asList(food1,food2,food3));
 }
 

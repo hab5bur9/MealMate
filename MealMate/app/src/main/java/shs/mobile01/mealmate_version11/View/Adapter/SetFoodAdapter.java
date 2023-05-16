@@ -18,7 +18,9 @@ import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
 import shs.mobile01.mealmate_version11.R;
 
 public class SetFoodAdapter extends RecyclerView.Adapter<SetFoodAdapter.ViewHolder>{
-    ArrayList<DataModel_Food> list;
+    public ArrayList<DataModel_Food> list;
+
+
 
     public SetFoodAdapter(ArrayList<DataModel_Food> list) {
         this.list = list;

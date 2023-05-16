@@ -16,8 +16,9 @@ public class ViewModel_CheckMeal{
         this.repository_meal = repository_meal;
     }
 
-    public void checkMeal(){
-        int mealTime=2;
-        repository_meal.meal_Configuration(mealTime);
+
+    public void onCheckedMeals(View view){
+        int mealTime = 2;
+        repository_meal.meal_Configuration(2);
     }
 }

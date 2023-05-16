@@ -41,9 +41,7 @@ public class HomeFragment extends Fragment {
 
         // 데베에서 오늘날짜 식단 정보 받아와서 arraylist에 저장하는 코드 작성
 
-        MealAdapter ma = new MealAdapter(food,R.layout.adapter_meal);
-
-        ((ListView)home.findViewById(R.id.listView_meal)).setAdapter(ma);
+        MealAdapter ma = new MealAdapter(food);
 
         return home;
     }
