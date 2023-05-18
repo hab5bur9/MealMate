@@ -1,44 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/backgroundLayout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#5fa06f"
+    android:id="@+id/backgroundLayout"
+    android:background="@drawable/frame"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/foodName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴 이름"
-        app:layout_constraintBottom_toTopOf="@id/foodInfo"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/foodInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="탄수화물 :  00 \n단백질     :  00 \n지방         :  00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/foodName"
-        app:layout_constraintBottom_toTopOf="@id/btn_holder"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_holder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <Button
-            android:id="@+id/btnSelect"
+        <!-- 메뉴이름 -->
+        <TextView
+            android:id="@+id/foodName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:padding="10dp"
+            android:text="메뉴 이름"
+            app:layout_constraintBottom_toTopOf="+id/nutrition_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 탄단지 -->
+        <LinearLayout
+            android:id="@+id/nutrition_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodName">
+
+            <TextView
+                android:id="@+id/nutrition_carbo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:text="탄수화물 :  00"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/nutrition_protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:text="단백질     :  00"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nutrition_carbo" />
+
+            <TextView
+                android:id="@+id/nutrition_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:text="지방         :  00"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nutrition_protein" />
+
+        </LinearLayout>
+
+        <!-- 하트, add -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Button
+                android:layout_width="44dp"
+                android:layout_height="34dp"
+                android:layout_margin="12dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/btn_heart_empty"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_food_add"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_food_add"
+                android:layout_width="113dp"
+                android:layout_height="47dp"
+                android:layout_marginVertical="10dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/btn_food_add"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

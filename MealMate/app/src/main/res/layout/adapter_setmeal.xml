@@ -15,15 +15,31 @@
         android:layout_width="match_parent"
         android:layout_height="500px"
         />
-    <Button
-        android:id="@+id/btn_create"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="생성"/>
-    <Button
-        android:id ="@+id/btn_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="삭제"/>
+        android:layout_height="43dp">
+
+         <Button
+            android:id="@+id/btn_meal_add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/btn_meal_add"
+            android:scaleType="fitCenter" />
+
+        <Button
+            android:id="@+id/btn_meal_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@drawable/btn_meal_delete"
+            android:scaleType="fitCenter" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -21,17 +21,24 @@
         >
 
         <Button
+            android:id="@+id/btn_preset_create"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="save preset" />
+            android:layout_marginHorizontal="5dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/btn_preset_create"
+            android:scaleType="fitCenter" />
 
         <Button
-            android:id="@+id/btn_loadPreset"
+            android:id="@+id/btn_preset_bring"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="load preset" />
+            android:layout_marginHorizontal="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@drawable/btn_preset_bring" />
     </LinearLayout>
 
     <ListView
@@ -41,12 +48,5 @@
         app:layout_constraintTop_toBottomOf="@id/layout_preset"
 
         />
-
-    <Button
-        android:id="@+id/btn_addMealTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Meal Time"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
