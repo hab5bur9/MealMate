@@ -1,45 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<!-- 한 끼 -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/setMealName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="식단 구분 TextView"
-        />
-    <ListView
-        android:id="@+id/listView_setFood"
-        android:layout_width="match_parent"
-        android:layout_height="500px"
-        />
-
+    xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="43dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/setMealName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="식단 구분 TextView"
+            android:textSize="20dp"
+            />
+        <ListView
+            android:id="@+id/listView_setFood"
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+            />
 
-         <Button
-            android:id="@+id/btn_meal_add"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@drawable/btn_meal_add"
-            android:scaleType="fitCenter" />
-
+        <!-- 끼니 삭제하기 -->
         <Button
             android:id="@+id/btn_meal_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+
             android:adjustViewBounds="true"
             android:background="@drawable/btn_meal_delete"
             android:scaleType="fitCenter" />
 
-
     </LinearLayout>
-
-
-</LinearLayout>
+</layout>
