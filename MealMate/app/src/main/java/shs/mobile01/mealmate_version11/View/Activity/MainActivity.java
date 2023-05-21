@@ -6,6 +6,7 @@ import android.view.View;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentTransaction;
 
 import shs.mobile01.mealmate_version11.R;
@@ -13,6 +14,7 @@ import shs.mobile01.mealmate_version11.View.Fragment.CalendarFragment;
 import shs.mobile01.mealmate_version11.View.Fragment.FoodListFragment;
 
 import shs.mobile01.mealmate_version11.View.Fragment.HomeFragment;
+import shs.mobile01.mealmate_version11.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,25 +23,14 @@ public class MainActivity extends AppCompatActivity {
     FoodListFragment flf;
     FragmentTransaction ft;
 
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        //init process
-//          DataBase dataBase = new DataBase(this); // 수정 필요
-//
-//        Repository_Meal repository_meal = new Repository_Meal(dataBase);
-//        Repository_Food repository_food = new Repository_Food(dataBase);
-//        Repository_User repository_user = new Repository_User(dataBase);
-//
-//        new ViewModel_CheckMeal(repository_meal);
-//        new ViewModel_SetMeal(repository_meal,repository_food);
-//        new ViewModel_UserInfo(repository_user);
-//
-//
-//        Repository_Meal repository_meal = new Repository_Meal();
-//        new ViewModel_CheckMeal(repository_meal);
+
 
 
         hf = new HomeFragment();
@@ -79,19 +70,36 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
             }
         });
-
-        findViewById(R.id.btnMyPage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//
+//        findViewById(R.id.btnMyPage).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
         /*SetFoodAdapter sfa = new SetFoodAdapter();
         ((ListView)findViewById(R.id.textListView)).setAdapter(sfa);*/
 
     }
-    public void onClickToStartActivity(View view){ // 수정필요
-        Intent it = new Intent(MainActivity.this,SetMealActivity.class);
-        startActivity(it);
-    }
+//    public void onClickToStartActivity(View view){ // 수정필요
+//        Intent it = new Intent(MainActivity.this,SetMealActivity.class);
+//        startActivity(it);
+//    }
 }
+
+
+//더미 데이터
+//init process
+//          DataBase dataBase = new DataBase(this); // 수정 필요
+//
+//        Repository_Meal repository_meal = new Repository_Meal(dataBase);
+//        Repository_Food repository_food = new Repository_Food(dataBase);
+//        Repository_User repository_user = new Repository_User(dataBase);
+//
+//        new ViewModel_CheckMeal(repository_meal);
+//        new ViewModel_SetMeal(repository_meal,repository_food);
+//        new ViewModel_UserInfo(repository_user);
+//
+//
+//        Repository_Meal repository_meal = new Repository_Meal();
+//        new ViewModel_CheckMeal(repository_meal);

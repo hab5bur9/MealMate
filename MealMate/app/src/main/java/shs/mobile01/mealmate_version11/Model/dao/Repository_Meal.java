@@ -1,24 +1,75 @@
 package shs.mobile01.mealmate_version11.Model.dao;
 
-import java.util.ArrayList;
+import android.app.Application;
 
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import shs.mobile01.mealmate_version11.Model.entity.Meal;
 
 
 public class Repository_Meal {
+    //testing data
+    ArrayList<Meal> meals = new ArrayList<>(Arrays.asList(new Meal(),new Meal(),new Meal()));
 
-    private ArrayList<DataModel_Meal> dataModel_meals ;
+    MutableLiveData mutableLiveData = new MutableLiveData();
+    //end data
+
+    private LiveData<ArrayList<Meal>> listLiveData;
+
+
     private DataBase dataBase;
 
-    public Repository_Meal(DataBase dataBase){// init
-        // 초기값 설정
-        this.dataBase = dataBase;
 
-//        loadMealList(20);
+    public Repository_Meal(Application application){
+        mutableLiveData.setValue(meals);
+
+        listLiveData = mutableLiveData;
     }
-    public Repository_Meal(){//testing constructor
-       // loadMealList(3);
+
+    public LiveData<ArrayList<Meal>> getListLiveData() {
+        return listLiveData;
     }
+
+    public void testDeleteMeal(Meal meal){
+        meals.remove(meal);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// 더미 데이터
+//    public void meal_Configuration(int meal_num){
+//        for(int i=0;i<dataModel_meals.size();i++)
+//            if(dataModel_meals.get(i).getMealTime()==meal_num)
+//                dataModel_meals.get(i).onCheckedChange();
+//
+//        dataBase.process_to_DB(DataBase.TABLE_MEAL, DataBase.DATABASE_MODE_UPDATE,null);
+//        }
+
+
+
+
+//    private ArrayList<String> make_DB_Data(){
+//        ArrayList<String> data = new ArrayList<>();
+////        for(int i=0;i<dataModel_meals.size();i++){
+////            data.addAll(dataModel_meals.get(i).getDBString());// note!!
+////        }
+//       return data;
+//    }
+
 //    private void loadMealList(int datetime){ //test
 //        // 날짜를 입력받아서 해당 날짜의 식단정보를 로딩
 ////        dataModel_meals = new ArrayList<>();
@@ -28,27 +79,3 @@ public class Repository_Meal {
 ////            dataModel_meals.add(new DataModel_Meal(2,20,3,6,2,false));
 ////        }
 //    }
-
-    public void meal_Configuration(int meal_num){
-
-        for(int i=0;i<dataModel_meals.size();i++)
-            if(dataModel_meals.get(i).getMealTime()==meal_num)
-                dataModel_meals.get(i).onCheckedChange();
-
-        dataBase.process_to_DB(DataBase.TABLE_MEAL, DataBase.DATABASE_MODE_UPDATE,null);
-    }
-
-    public ArrayList<DataModel_Meal> getMealList(){
-        return dataModel_meals;
-    }
-
-    private ArrayList<String> make_DB_Data(){
-        ArrayList<String> data = new ArrayList<>();
-        for(int i=0;i<dataModel_meals.size();i++){
-            data.addAll(dataModel_meals.get(i).getDBString());// note!!
-        }
-        return data;
-    }
-
-
-}

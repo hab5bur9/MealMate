@@ -2,6 +2,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     >
     <data>
         <variable
@@ -31,16 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="save preset"
-            android:onClick="@{ViewModel_SetMeal.savePreset}"/>
+            android:text="save preset" />
 
         <Button
             android:id="@+id/btn_loadPreset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="load preset"
-            android:onClick="@{ViewModel_SetMeal.loadPreset}"/>
+            android:text="load preset" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,10 +47,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/layout_preset"
+        tools:listitem="@layout/adapter_setmeal"
+        tools:itemCount="2"
         />
 
     <Button
-        android:onClick="@{ViewModel_SetMeal.addMealTime}"
         android:id="@+id/btn_addMealTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -13,16 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Food;
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
+import shs.mobile01.mealmate_version11.Model.entity.Food;
 import shs.mobile01.mealmate_version11.R;
 
 public class SetFoodAdapter extends RecyclerView.Adapter<SetFoodAdapter.ViewHolder>{
-    public ArrayList<DataModel_Food> list;
+    // DB에 업로드 하기위한 메서드
+
+    private final int LayoutName = R.layout.adapter_setfood;
+    public ArrayList<Food> list = new ArrayList<>();
 
 
-
-    public SetFoodAdapter(ArrayList<DataModel_Food> list) {
+    public SetFoodAdapter(){
+        //empty constructor
+    }
+    public SetFoodAdapter(ArrayList<Food> list) {
         this.list = list;
     }
 
@@ -40,7 +44,7 @@ public class SetFoodAdapter extends RecyclerView.Adapter<SetFoodAdapter.ViewHold
     @NonNull
     @Override
     public SetFoodAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_setfood,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(LayoutName,parent,false);
         return new ViewHolder(view);
     }
 
@@ -62,7 +66,13 @@ public class SetFoodAdapter extends RecyclerView.Adapter<SetFoodAdapter.ViewHold
     public int getItemCount() {
         return list.size();
     }
+
+    public void setList(ArrayList list){
+        this.list=list;
+    }
 }
+
+
 //public class SetFoodAdapter extends ArrayAdapter {
 //    private View ex ;
 //    ArrayList<ArrayList> list = new ArrayList<>();

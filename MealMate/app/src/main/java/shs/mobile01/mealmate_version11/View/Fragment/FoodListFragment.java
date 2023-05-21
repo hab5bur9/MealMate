@@ -6,53 +6,70 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Food;
+import shs.mobile01.mealmate_version11.Model.entity.Food;
 import shs.mobile01.mealmate_version11.R;
 import shs.mobile01.mealmate_version11.View.Adapter.FoodAdapter;
+import shs.mobile01.mealmate_version11.viewModel.ViewModel_FoodList;
 
 public class FoodListFragment extends Fragment {
 
 
-    private View foodListFragment;
+    private View view;
 
-    // open test data
-    DataModel_Food dm;
-    ArrayList<DataModel_Food>testData1,testData2,testData3;
-    ArrayList<ArrayList<DataModel_Food>> testData;
+    private FoodAdapter mAdapter;
 
-    public void loadPreset(){
-        dm = new DataModel_Food(1,1,"food",100,100,100,300,0);
-        testData1 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
-        testData2 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
-        testData3 = new ArrayList<>(Arrays.asList(dm,dm,dm,dm));
-        testData= new ArrayList<>(Arrays.asList(testData1,testData2,testData3)); ;
+    private RecyclerView mRecyclerView;
+
+    private ViewModel_FoodList viewModelFoodList;
+
+    public FoodListFragment() {
 
     }
-    // close test data
-    public FoodListFragment(){
 
-    }
-    public FoodListFragment(Context context){
-        // 어디서 생성된 프래그먼트인지 검사
-    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        foodListFragment = inflater.inflate(R.layout.fragment_foodlist,container,false);
+        view = inflater.inflate(R.layout.fragment_foodlist, container, false);
 
-        FoodAdapter fa = new FoodAdapter(testData);
-        ((RecyclerView)foodListFragment.findViewById(R.id.recyclerView_food)).setAdapter(fa);
+        //recycler view setup
+        mRecyclerView = view.findViewById(R.id.recyclerView_food);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.scrollToPosition(((LinearLayoutManager)mRecyclerView.getLayoutManager()).findFirstCompletelyVisibleItemPosition());
+
+        mAdapter = new FoodAdapter();
+        mRecyclerView.setAdapter(mAdapter);
+
+        //recycler view end
 
 
-        return foodListFragment;
+        //observer setup
+        viewModelFoodList = new ViewModelProvider(this).get(ViewModel_FoodList.class);
+        viewModelFoodList.getFoodListLiveData().observe(getViewLifecycleOwner(), new Observer<ArrayList<Food>>() {
+            @Override
+            public void onChanged(ArrayList<Food> foods) {
+                //observe 함수 작성
+                mAdapter.setList(foods);
+
+                //testing toast message
+                Toast.makeText(getContext(),"foodListAcessComplete!!",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //observer end
+
+        return view;
     }
 }

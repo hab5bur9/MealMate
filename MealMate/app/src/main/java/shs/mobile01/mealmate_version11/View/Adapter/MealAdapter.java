@@ -1,45 +1,65 @@
 package shs.mobile01.mealmate_version11.View.Adapter;
 
-import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
+
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
+
+import shs.mobile01.mealmate_version11.Model.entity.Meal;
 import shs.mobile01.mealmate_version11.R;
+
 import java.util.ArrayList;
 
 
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
-
+    // ViewModel의 liveData를 출력하기 위한 어댑터
     private final int layoutName = R.layout.adapter_meal;
 
-    private ArrayList<DataModel_Meal> list;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    private OnItemClickListener listener;
+
+    private ArrayList<Meal> list = new ArrayList<>();
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         Button btnCheck;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             btnCheck = itemView.findViewById(R.id.btnCheck);
 
+            //check event
+            btnCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+//                    if (listener != null && position = RecyclerView.NO_POSITION) {
+//                        listener.onItemClick(list.get(position));
+//                    }
+                }
+            });
         }
     }
 
-    public MealAdapter(ArrayList<DataModel_Meal> list ){
-        this.list=list;
+    public interface OnItemClickListener {
+        void onItemClick(Meal meal);
     }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
     @NonNull
     @Override
     public MealAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(layoutName,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutName, parent, false);
         return new ViewHolder(view);
     }
 
@@ -56,6 +76,11 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void setList(ArrayList<Meal> list) {
+        this.list = list;
+        notifyDataSetChanged();
     }
 }
 //public class MealAdapter extends BaseAdapter {

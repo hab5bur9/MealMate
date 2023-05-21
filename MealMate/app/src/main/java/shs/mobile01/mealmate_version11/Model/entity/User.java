@@ -1,11 +1,31 @@
-package shs.mobile01.mealmate_version11.Model.dto;
+package shs.mobile01.mealmate_version11.Model.entity;
 
-public class DataModel_User {
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class User {
+    @PrimaryKey
+    @ColumnInfo(name ="id")
+    private int id;
+
+    @ColumnInfo(name ="User_name")
     private String name;
+
+    @ColumnInfo(name ="User_gender")
     private int gender;
+
+    @ColumnInfo(name ="User_height")
     private int height;
+
+    @ColumnInfo(name ="User_weight")
     private int weight;
+
+    @ColumnInfo(name ="User_activityRatio")
     private int activityRatio;
+
+    @ColumnInfo(name ="User_purpose")
     private int purpose;
 
     public final int GENDER_MALE = 1;
@@ -35,7 +55,7 @@ public class DataModel_User {
     public void setActivityRatio(int activityRatio){this.activityRatio=activityRatio;}
     public void setPurpose(int purpose){this.purpose=purpose;}
 
-    public DataModel_User(String name,int gender,int height,int weight, int activityRatio,int purpose){
+    public User(String name,int gender,int height,int weight, int activityRatio,int purpose){
         this.name=name;
         this.gender=gender;
         this.height=height;

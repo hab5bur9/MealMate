@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Food;
-import shs.mobile01.mealmate_version11.Model.dto.DataModel_Meal;
+
+import shs.mobile01.mealmate_version11.Model.entity.Food;
 import shs.mobile01.mealmate_version11.R;
 import shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal;
 
 public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHolder> {
     // 호출 순서 1. 생성자로 데이터 입력받기 2. getItemCount()로 생성할 뷰의 개수 파악 3. onCreateViewHolder()로 뷰를 count 수 만큼 생성
-    public ArrayList<ArrayList<DataModel_Food>> list ; // 테스트 list 추후에 변경
+    public ArrayList<ArrayList<Food>> list  = new ArrayList<>(); // 테스트 list 추후에 변경
 
 
 
@@ -55,8 +55,8 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
         }
     }
 
-    public SetMealAdapter( ArrayList<ArrayList<DataModel_Food>> list ){//constructor 생성자, 데이터 리스트 받음
-        this.list = list;
+    public SetMealAdapter( ){//constructor 생성자, 데이터 리스트 받음
+
     }
 
 
@@ -70,7 +70,7 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull SetMealAdapter.ViewHolder holder, int position) {
-        SetFoodAdapter sfa = new SetFoodAdapter(list.get(position));
+        SetFoodAdapter sfa = new SetFoodAdapter();
         holder.getRv().setAdapter(sfa);
 
         holder.getBtnDelete().setOnClickListener(new View.OnClickListener() {
@@ -85,7 +85,7 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
             @Override
             public void onClick(View view) {
                 //test
-                sfa.list.add(new DataModel_Food(1,1,"food",100,100,100,300,0));
+                //sfa.list.add(new DataModel_Food(1,1,"food",100,100,100,300,0));
                 sfa.notifyDataSetChanged();
             }
         });
@@ -96,7 +96,9 @@ public class SetMealAdapter extends RecyclerView.Adapter<SetMealAdapter.ViewHold
         // 리사이클러 뷰의 인덱스 개수 만큼 생성받기 위한 리턴
         return list.size();
     }
-
+    public void setList(ArrayList<ArrayList<Food>> list){
+        this.list = list;
+    }
 }
 
 //public class SetMealAdapter extends ArrayAdapter {
