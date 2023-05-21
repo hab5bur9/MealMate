@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/dateTimeTextView"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="ViewModel_CheckMeal"
+            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_CheckMeal" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="00년 00일"
-        />
-    <ListView
-        android:id="@+id/listView_meal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/recordMealButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="식단 기록 / 변경"
-        android:onClick="onClickToStartActivity"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00년 00일"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_MealList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/dateTimeTextView"
+            tools:listitem="@layout/adapter_meal"
+            tools:itemCount="3"/>
+
+        <Button
+            android:id="@+id/recordMealButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="식단 기록 / 변경"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView_MealList"/>
 
 
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

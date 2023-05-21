@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name ="ViewModel_SetMeal"
+            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/datetime"
@@ -34,12 +42,13 @@
             android:text="load preset" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView_setMeal"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_setMeal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/layout_preset"
-
+        tools:listitem="@layout/adapter_setmeal"
+        tools:itemCount="2"
         />
 
     <Button
@@ -50,3 +59,5 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

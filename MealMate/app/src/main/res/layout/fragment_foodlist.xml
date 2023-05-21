@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <EditText
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="ViewModel_Food"
+            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_FoodList" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#bfbfbfbf"
-        android:hint="검색창 입니닷"/>
-    <ListView
-        android:id="@+id/listView_food"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/EditText_SearchFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#bfbfbfbf"
+            android:hint="검색창 입니닷"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/EditText_SearchFood"
+            tools:itemCount="3"
+            tools:listitem="@layout/adapter_food"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
