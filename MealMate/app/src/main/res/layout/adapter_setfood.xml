@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 식단 속 음식 -->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="ViewModel_SetMeal"
-            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_SetMeal" />
-    </data>
+    xmlns:tools="http://schemas.android.com/tools" >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent" >
 
         <TextView
             android:id="@+id/selectedFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="음식 정보 출력 textView"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="10dp"
+            android:padding="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="음식 정보 출력 textView"/>
 
         <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="삭제"
-
+            android:id="@+id/btn_food_delete"
+            android:layout_width="65dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/btn_food_delete"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

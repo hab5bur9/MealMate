@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable
-            name="ViewModel_CheckMeal"
-            type="shs.mobile01.mealmate_version11.viewModel.ViewModel_CheckMeal" />
-    </data>
+<!-- 음식 체크박스 -->
+    <layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" >
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/backgroundLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#50b0b6">
-
+        android:padding="10dp"
+        android:background="@drawable/frame_meal"
+        android:orientation="vertical"
+        android:id="@+id/backgroundLayout">
         <TextView
             android:id="@+id/foodInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="식단 정보"
-            app:layout_constraintBottom_toTopOf="@id/foodList"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/foodList"/>
         <TextView
             android:id="@+id/foodList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1. 메뉴 1 \n2. 메뉴 2 \n3. 메뉴 3"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/foodInfo" />
+            app:layout_constraintTop_toBottomOf="@id/foodInfo"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Button
-            android:id="@+id/btnCheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="체크 버튼"
+            android:id="@+id/btn_check_before"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/btn_check_before"
+            android:onClick="onClickToStartActivity"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-<!--        android:onClick="@{ViewModel_CheckMeal::onChecked}"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
