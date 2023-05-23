@@ -4,11 +4,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:layout_margin="20dp" >
 
         <!-- 날짜 -->
         <LinearLayout
@@ -117,11 +117,12 @@
 
         <!-- 끼니 List -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listView_setMeal"
+            android:id="@+id/recyclerView_setMeal"
             android:layout_width="match_parent"
-            android:layout_height="1000px"
-            app:layout_constraintTop_toBottomOf="@id/layout_preset" />
-            tools:listitem
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_preset"
+            tools:listitem="@layout/adapter_setmeal"
+            tools:itemCount="2" />
 
         <!-- 끼니 추가하기 -->
         <Button
@@ -134,6 +135,8 @@
             android:background="@drawable/btn_meal_add"
             android:scaleType="fitCenter"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/listView_setMeal" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView_setMeal" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

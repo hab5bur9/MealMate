@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="frame_meal" />
-                            <entry key="sourceFile" value="D:\androidproject\MealMate_drawable\frame_meal.svg" />
+                            <entry key="outputName" value="btn_meal_delete_long" />
+                            <entry key="sourceFile" value="D:\androidproject\MealMate_drawable\Button\btn_meal_delete_long.svg" />
                           </map>
                         </option>
                       </PersistentState>
