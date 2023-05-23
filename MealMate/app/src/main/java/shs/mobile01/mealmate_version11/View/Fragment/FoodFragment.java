@@ -1,11 +1,9 @@
 package shs.mobile01.mealmate_version11.View.Fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,14 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import shs.mobile01.mealmate_version11.Model.entity.Food;
 import shs.mobile01.mealmate_version11.R;
 import shs.mobile01.mealmate_version11.View.Adapter.FoodAdapter;
-import shs.mobile01.mealmate_version11.viewModel.ViewModel_FoodList;
+import shs.mobile01.mealmate_version11.viewModel.FoodViewModel;
 
-public class FoodListFragment extends Fragment {
+public class FoodFragment extends Fragment {
 
 
     private View view;
@@ -33,19 +31,19 @@ public class FoodListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
 
-    private ViewModel_FoodList viewModelFoodList;
+    private FoodViewModel viewModelFoodList;
 
-    public FoodListFragment() {
+    public FoodFragment() {
 
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_foodlist, container, false);
+        view = inflater.inflate(R.layout.fragment_food, container, false);
 
         //recycler view setup
-        mRecyclerView = view.findViewById(R.id.recyclerView_food);
+        mRecyclerView = view.findViewById(R.id.rv_food_search);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.scrollToPosition(((LinearLayoutManager)mRecyclerView.getLayoutManager()).findFirstCompletelyVisibleItemPosition());
 
@@ -56,10 +54,10 @@ public class FoodListFragment extends Fragment {
 
 
         //observer setup
-        viewModelFoodList = new ViewModelProvider(this).get(ViewModel_FoodList.class);
-        viewModelFoodList.getFoodListLiveData().observe(getViewLifecycleOwner(), new Observer<ArrayList<Food>>() {
+        viewModelFoodList = new ViewModelProvider(this).get(FoodViewModel.class);
+        viewModelFoodList.getAllFoods().observe(getViewLifecycleOwner(), new Observer<List<Food>>() {
             @Override
-            public void onChanged(ArrayList<Food> foods) {
+            public void onChanged(List<Food> foods) {
                 //observe 함수 작성
                 mAdapter.setList(foods);
 

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/selectedFood"
+            android:id="@+id/tv_meal_subItem_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -18,8 +18,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="음식 정보 출력 textView"/>
 
+        <!-- 음식 삭제하기-->
         <Button
-            android:id="@+id/btn_food_delete"
+            android:id="@+id/btn_meal_subItem_delete"
             android:layout_width="65dp"
             android:layout_height="32dp"
             android:layout_marginRight="16dp"

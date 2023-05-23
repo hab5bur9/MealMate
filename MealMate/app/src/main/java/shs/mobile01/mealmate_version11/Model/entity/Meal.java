@@ -2,31 +2,42 @@ package shs.mobile01.mealmate_version11.Model.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "meal", foreignKeys = @ForeignKey(entity = Food.class, parentColumns = "foodIndex", childColumns = "foodIndex"))
 public class Meal {
-    private final int testValue =1;
-    @PrimaryKey
-    private int index = testValue;
+    @PrimaryKey(autoGenerate = true)
+    private int mealIndex;
 
-    @ColumnInfo(name = "meal_datetime")
-    private int datetime = testValue; // check needed
+    private String mealDate;
+    private int mealCnt;
+    private int mealFoodAmount;
 
-    @ColumnInfo(name = "meal_cnt")
-    private int mealTime = testValue;
+    @ColumnInfo(name = "foodIndex")
+    private int foodIndex;
 
-    @ColumnInfo(name = "food_index")
-    private int food_index = testValue;
+    private int checked;
 
-    @ColumnInfo(name ="meal_amount")
-    private int meal_amount = testValue;
-
-    @ColumnInfo(name ="checked")
-    private boolean checked = false;
-
-    public Meal(){
-
+    public Meal(String mealDate, int mealCnt, int mealFoodAmount, int foodIndex, int checked) {
+        this.mealDate = mealDate;
+        this.mealCnt = mealCnt;
+        this.mealFoodAmount = mealFoodAmount;
+        this.foodIndex = foodIndex;
+        this.checked = checked;
     }
 
+    // getter and setter methods...
+    public int getMealIndex() {return mealIndex;}
+    public String getMealDate() {return mealDate;}
+    public int getMealCnt() {return mealCnt;}
+    public int getMealFoodAmount() {return mealFoodAmount;}
+    public void setMealFoodAmount(int mealFoodAmount) {this.mealFoodAmount = mealFoodAmount;}
+    public int getFoodIndex() {return foodIndex;}
+    public int getChecked() {return checked;}
+    public void setChecked(int checked) {this.checked = checked;}
+
+    //test
+    public void setMealIndex(int mealIndex) {this.mealIndex = mealIndex;}
 }
+

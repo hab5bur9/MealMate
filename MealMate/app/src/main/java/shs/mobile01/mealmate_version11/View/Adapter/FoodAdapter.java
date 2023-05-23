@@ -45,44 +45,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
         return list.size();
     }
 
-    public void setList(ArrayList list){
+    public void setList(List list){
         // liveData observe listener 호출될 때 마다 호출되어 adapter의 list를 업데이트 해주는 method
         this.list=list;
         // notifyDataSetChanged 메서드는 어댑터를 초기화하고 다시생성하는 것이라 효율이 안좋으므로 추후에 수정 필요
         notifyDataSetChanged();
     }
 }
-
-
-
-
-
-// 더미 데이터
-//public class FoodAdapter extends BaseAdapter {
-//    private View ex;
-//    private ArrayList<ArrayList> list;
-//    public FoodAdapter(ArrayList<ArrayList> _list) {
-//        list = _list;
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return list.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return null;
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        ex = View.inflate(parent.getContext(), R.layout.adapter_food,null);
-//        return ex;
-//    }
-//}

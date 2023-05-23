@@ -4,9 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
@@ -16,7 +13,7 @@
 
         <!-- 홈 -->
         <Button
-            android:id="@+id/btnHome"
+            android:id="@+id/btn_navigation_home"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -28,12 +25,12 @@
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/btnCalendar"
+            app:layout_constraintRight_toLeftOf="@id/btn_navigation_calendar"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- 캘린더 -->
         <Button
-            android:id="@+id/btnCalendar"
+            android:id="@+id/btn_navigation_calendar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -44,13 +41,13 @@
             android:minHeight="0dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/btnHome"
-            app:layout_constraintRight_toLeftOf="@id/btnFood"
+            app:layout_constraintLeft_toRightOf="@id/btn_navigation_home"
+            app:layout_constraintRight_toLeftOf="@id/btn_navigation_food"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- 음식 -->
         <Button
-            android:id="@+id/btnFood"
+            android:id="@+id/btn_navigation_food"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -61,13 +58,13 @@
             android:minHeight="0dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/btnCalendar"
-            app:layout_constraintRight_toLeftOf="@id/btnMyPage"
+            app:layout_constraintLeft_toRightOf="@id/btn_navigation_calendar"
+            app:layout_constraintRight_toLeftOf="@id/btn_navigation_user"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- 마이페이지 -->
         <Button
-            android:id="@+id/btnMyPage"
+            android:id="@+id/btn_navigation_user"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -78,7 +75,7 @@
             android:minHeight="0dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/btnFood"
+            app:layout_constraintLeft_toRightOf="@id/btn_navigation_food"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

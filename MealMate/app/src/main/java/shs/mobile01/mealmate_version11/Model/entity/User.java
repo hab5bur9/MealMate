@@ -4,8 +4,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "user")
 public class User {
+
+
     @PrimaryKey
     @ColumnInfo(name ="id")
     private int id;
@@ -28,19 +30,22 @@ public class User {
     @ColumnInfo(name ="User_purpose")
     private int purpose;
 
-    public final int GENDER_MALE = 1;
-    public final int GENDER_FEMALE = 2;
+//    public final int GENDER_MALE = 1;
+//    public final int GENDER_FEMALE = 2;
+//
+//    public final int ACTIVITY_RATIO_NONE=1;
+//    public final int ACTIVITY_RATIO_ROW=2;
+//    public final int ACTIVITY_RATIO_MIDDLE=3;
+//    public final int ACTIVITY_RATIO_HIGH=4;
+//    public final int ACTIVITY_RATIO_MAX= 5;
+//
+//    public final int PURPOSE_DIET = 1;
+//    public final int PURPOSE_MAINTAIN=2;
+//    public final int PURPOSE_BURK=3;
 
-    public final int ACTIVITY_RATIO_NONE=1;
-    public final int ACTIVITY_RATIO_ROW=2;
-    public final int ACTIVITY_RATIO_MIDDLE=3;
-    public final int ACTIVITY_RATIO_HIGH=4;
-    public final int ACTIVITY_RATIO_MAX= 5;
-
-    public final int PURPOSE_DIET = 1;
-    public final int PURPOSE_MAINTAIN=2;
-    public final int PURPOSE_BURK=3;
-
+    public int getId() {
+        return id;
+    }
     public String getName(){return name;}
     public int getGender(){return gender;}
     public int getHeight(){return height;}
@@ -48,6 +53,10 @@ public class User {
     public int getActivityRatio(){return activityRatio;}
     public int getPurpose(){return purpose;}
 
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setName(String name){this.name = name;}
     public void setGender(int gender){this.gender=gender;}
     public void setHeight(int height){this.height=height;}
