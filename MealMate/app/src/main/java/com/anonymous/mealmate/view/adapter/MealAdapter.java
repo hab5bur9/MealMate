@@ -23,7 +23,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
 
     private List<Meal> list = new ArrayList<>();
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         Button btnCheck;
 
         public ViewHolder(@NonNull View itemView) {
@@ -35,9 +35,9 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-//                    if (listener != null && position = RecyclerView.NO_POSITION) {
-//                        listener.onItemClick(list.get(position));
-//                    }
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(list.get(position));
+                    }
                 }
             });
         }
