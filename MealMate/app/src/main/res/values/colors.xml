@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="mainColor">#8176FF</color>
+    <color name="mainColorDark">#7156DF</color>
     <color name="pointColor">#4ECB71</color>
+    <color name="pointColorDark">#3AA05C</color>
 </resources>
