@@ -7,46 +7,50 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp">
+        android:layout_margin="60px">
 
         <!-- 검색창 -->
         <EditText
             android:id="@+id/et_food_search"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginVertical="10dp"
+            android:layout_height="160px"
             android:background="@drawable/search_box"
             android:hint="음식 검색하기"
-            android:padding="20dp"
+            android:padding="50px"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <!-- 230524 변경사항 search 버튼 추가 -->
         <Button
             android:id="@+id/btn_food_search"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:background="@drawable/search_box"
             android:text="검색"
+            android:textStyle="bold"
+            android:layout_width="140px"
+            android:layout_height="120px"
+            android:layout_margin="20px"
+            android:background="@drawable/btn_search"
             app:layout_constraintRight_toRightOf="@id/et_food_search"
             app:layout_constraintTop_toTopOf="@id/et_food_search"
             app:layout_constraintBottom_toBottomOf="@id/et_food_search"
             />
         <!-- 여기까지  id 기록 추가 요망 추가시 comment 달아주세여-->
+        <!-- 추가완료! -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_food_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="25px"
             app:layout_constraintTop_toBottomOf="@+id/et_food_search">
 
             <!-- 모두 -->
             <Button
                 android:id="@+id/btn_food_category_all"
-                android:layout_width="130dp"
-                android:layout_height="35dp"
+                android:text="모두"
+                android:textSize="45px"
+                android:layout_width="330px"
+                android:layout_height="90px"
                 android:layout_marginHorizontal="10dp"
-                android:background="@drawable/btn_category_all_selected"
+                android:background="@drawable/btn_category_selected"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/btn_food_category_like"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,11 +59,13 @@
             <!-- 좋아요 -->
             <Button
                 android:id="@+id/btn_food_category_like"
+                android:text="좋아요"
+                android:textSize="45px"
                 android:layout_width="130dp"
                 android:layout_height="35dp"
                 android:layout_marginHorizontal="10dp"
                 android:adjustViewBounds="true"
-                android:background="@drawable/btn_category_like"
+                android:background="@drawable/btn_category"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/btn_food_category_all"
                 app:layout_constraintTop_toTopOf="parent"

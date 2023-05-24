@@ -6,27 +6,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="20px"
         android:background="@drawable/frame_food"
-        android:padding="5dp">
+        android:padding="15px">
 
         <!-- 메뉴이름 -->
         <TextView
             android:id="@+id/tv_food_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="25px"
             android:text="메뉴 이름"
-            android:textSize="20dp"
+            android:textSize="55px"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!--하트-->
         <Button
             android:id="@+id/btn_food_like"
-            android:layout_width="40dp"
-            android:layout_height="34dp"
-            android:layout_margin="10dp"
+            android:layout_width="100px"
+            android:layout_height="90px"
+            android:layout_margin="25px"
             android:background="@drawable/btn_heart_empty"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,14 +36,14 @@
             android:id="@+id/ll_food_nutrition_carbohydrate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="25px"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_food_name">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="15px"
                 android:text="탄수화물 :"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="parent" />
@@ -52,7 +52,7 @@
                 android:id="@+id/tv_food_nutrition_carbohydrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="15px"
                 android:text="00" />
 
         </LinearLayout>
@@ -62,21 +62,21 @@
             android:id="@+id/ll_food_nutrition_protein"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="25px"
             app:layout_constraintLeft_toRightOf="@id/ll_food_nutrition_carbohydrate"
             app:layout_constraintTop_toBottomOf="@id/tv_food_name">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="15px"
                 android:text="단백질 :" />
 
             <TextView
                 android:id="@+id/tv_food_nutrition_protein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="15px"
                 android:text="00" />
 
         </LinearLayout>
@@ -86,21 +86,21 @@
             android:id="@+id/ll_food_nutrition_fat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="25px"
             app:layout_constraintLeft_toRightOf="@id/ll_food_nutrition_protein"
             app:layout_constraintTop_toBottomOf="@id/tv_food_name">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="15px"
                 android:text="지방 :" />
 
             <TextView
                 android:id="@+id/tv_food_nutrition_fat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="15px"
                 android:text="00" />
         </LinearLayout>
 
@@ -109,21 +109,21 @@
             android:id="@+id/ll_food_nutrition_kcal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="25px"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_food_nutrition_carbohydrate">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="15px"
                 android:text="총 칼로리 :" />
 
             <TextView
                 android:id="@+id/tv_food_nutrition_kcal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="15px"
                 android:text="00" />
 
         </LinearLayout>
@@ -131,12 +131,12 @@
         <!--추가-->
         <Button
             android:id="@+id/btn_food_add"
-            android:layout_width="89dp"
-            android:layout_height="38dp"
-            android:layout_margin="10dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/btn_food_add"
-            android:scaleType="fitCenter"
+            android:text="추가"
+            android:textStyle="bold"
+            android:layout_width="200px"
+            android:layout_height="100px"
+            android:layout_margin="25px"
+            android:background="@drawable/btn_round_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 

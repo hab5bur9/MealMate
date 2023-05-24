@@ -6,13 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools" >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:padding="25px" >
 
         <TextView
             android:id="@+id/tv_meal_subItem_info"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -21,12 +21,11 @@
         <!-- 음식 삭제하기-->
         <Button
             android:id="@+id/btn_meal_subItem_delete"
-            android:layout_width="65dp"
-            android:layout_height="32dp"
-            android:layout_marginRight="16dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/btn_food_delete"
-            android:scaleType="fitCenter"
+            android:text="삭제"
+            android:layout_width="160px"
+            android:layout_height="80px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/btn_round_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"

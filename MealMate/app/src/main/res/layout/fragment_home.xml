@@ -7,24 +7,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp">
+        android:layout_margin="60px">
 
         <!-- 체중 달성 -->
         <Button
             android:id="@+id/View_user_info"
             android:layout_width="match_parent"
-            android:layout_height="152dp"
-            android:layout_margin="20dp"
+            android:layout_height="450px"
+            android:layout_marginVertical="40px"
             android:background="@drawable/frame_goals"
             android:text="my info"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="20dp" />
+            app:layout_constraintTop_toTopOf="parent" />
         <!-- 차트 API -->
         <Button
             android:id="@+id/View_meal_chart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="50px"
             android:text ="chart info"
             app:layout_constraintTop_toBottomOf="@id/View_user_info"/>
         <!-- 오늘 식단 -->
