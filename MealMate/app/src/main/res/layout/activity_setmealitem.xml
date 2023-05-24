@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 식단 수정 페이지 -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp" >
+
+        <include
+            android:id="@+id/include_datetime_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/include_datetime"/>
+
+        <!-- 프리셋 -->
+        <LinearLayout
+            android:id="@+id/ll_preset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/include_datetime_info" >
+
+            <!-- 프리셋 생성하기 -->
+            <Button
+                android:id="@+id/btn_preset_create"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="5dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/btn_preset_create"
+                android:scaleType="fitCenter" />
+
+            <!-- 프리셋 불러오기 -->
+            <Button
+                android:id="@+id/btn_preset_bring"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="5dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:background="@drawable/btn_preset_bring" />
+
+        </LinearLayout>
+
+        <!-- 끼니 List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_meal_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ll_preset"
+            tools:listitem="@layout/adapter_mealitem"
+            tools:itemCount="2" />
+
+        <!-- 끼니 추가하기 -->
+        <Button
+            android:id="@+id/btn_meal_add"
+            android:layout_width="260dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+
+            android:adjustViewBounds="true"
+            android:background="@drawable/btn_meal_add"
+            android:scaleType="fitCenter"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_meal_setting" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

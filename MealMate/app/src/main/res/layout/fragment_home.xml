@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 홈화면 -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+        <!-- 체중 달성 -->
+        <Button
+            android:id="@+id/View_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/frame_goals"
+            android:text="my info"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="20dp" />
+        <!-- 차트 API -->
+        <Button
+            android:id="@+id/View_meal_chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text ="chart info"
+            app:layout_constraintTop_toBottomOf="@id/View_user_info"/>
+        <!-- 오늘 식단 -->
+        <include
+            layout="@layout/include_meallist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/View_meal_chart"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
