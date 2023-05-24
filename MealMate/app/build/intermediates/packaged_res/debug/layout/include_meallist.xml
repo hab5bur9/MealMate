@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 홈/캘린더 식단 list -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+        <include
+            android:id="@+id/include_datetime_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/include_datetime"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_meal_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/include_datetime_info"
+            tools:listitem="@layout/adapter_meal"
+            tools:itemCount="3"/>
+
+        <Button
+            android:id="@+id/btn_meal_modify"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_modify"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_meal_loading" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
