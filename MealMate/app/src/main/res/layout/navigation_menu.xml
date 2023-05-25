@@ -15,7 +15,7 @@
         <Button
             android:id="@+id/btn_navigation_home"
             android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_height="120px"
             android:layout_weight="1"
             android:layout_margin="15px"
             android:background="@drawable/ic_menu_home_selected"
@@ -27,8 +27,8 @@
         <!-- 캘린더 -->
         <Button
             android:id="@+id/btn_navigation_calendar"
-            android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_width="130px"
+            android:layout_height="120px"
             android:layout_weight="1"
             android:layout_margin="15px"
             android:background="@drawable/ic_menu_calendar"
@@ -40,8 +40,8 @@
         <!-- 음식 -->
         <Button
             android:id="@+id/btn_navigation_food"
-            android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_width="110px"
+            android:layout_height="120px"
             android:layout_weight="1"
             android:layout_margin="15px"
             android:background="@drawable/ic_menu_food"
@@ -54,7 +54,7 @@
         <Button
             android:id="@+id/btn_navigation_user"
             android:layout_width="100px"
-            android:layout_height="100px"
+            android:layout_height="120px"
             android:layout_weight="1"
             android:layout_margin="15px"
             android:background="@drawable/ic_menu_user"
