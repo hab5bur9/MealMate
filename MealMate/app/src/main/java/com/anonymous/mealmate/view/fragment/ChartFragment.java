@@ -48,15 +48,15 @@ private BarChart barChart;
         List<BarEntry> entries = new ArrayList<>();
         for (int i = 0; i < completionPercentages.size(); i++) {
             float completionPercentage = completionPercentages.get(i);
-            entries.add(new BarEntry(i, completionPercentage));
+            entries.add(new BarEntry(i, completionPercentage));//값을 넣어서 막대 그래프로 표시
         }
 
         // BarDataSet 생성
         BarDataSet dataSet = new BarDataSet(entries, "Completion");
-        dataSet.setColor(Color.BLUE);
+        dataSet.setColor(Color.rgb(208,112,251));
 
         // BarData 생성
-        BarData barData = new BarData(dataSet);//데이터베이스에서 가져옴 :(완료된 식단/총 식단)*100
+        BarData barData = new BarData(dataSet);
         barData.setBarWidth(0.5f);
 
         // X축 설정 (일주일 요일 표시)
