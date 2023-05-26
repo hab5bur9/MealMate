@@ -49,7 +49,6 @@ public class HomeFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
 
 
-
         view = inflater.inflate( R.layout.fragment_home,container,false);
 
 

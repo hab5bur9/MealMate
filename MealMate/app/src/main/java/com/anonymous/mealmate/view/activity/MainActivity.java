@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void onStartActivity(View view){
         Intent intent = new Intent(MainActivity.this,SetMealItemActivity.class);
         startActivity(intent);
