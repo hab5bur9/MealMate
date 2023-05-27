@@ -1,6 +1,5 @@
 package com.anonymous.mealmate.view.activity;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -15,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 import androidx.appcompat.app.AlertDialog;
+
+import com.anonymous.mealmate.R;
 
 class user_info{
 
@@ -123,7 +124,7 @@ public class ResearchActivity extends AppCompatActivity {
                 CheckState();
                 Calculate(user.user_kcal);
                 p.setText(user.user_name+"님의 하루 필요 칼로리는"+String.valueOf(user.user_kcal)+"kcal 입니다."); // 계산 결과를 화면에 표시
-                Toast.makeText(MainActivity.this, "하루 필요 칼로리는"+user.user_kcal + "Kcal 입니다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ResearchActivity.this, "하루 필요 칼로리는"+user.user_kcal + "Kcal 입니다", Toast.LENGTH_SHORT).show();
                 Start.setText("Meal Mate 시작하기");
 
 
@@ -138,9 +139,9 @@ public class ResearchActivity extends AppCompatActivity {
                         test.setVisibility(View.VISIBLE);
 
                         p.setText(user.user_name+"님의 하루 필요 칼로리는"+String.valueOf(user.user_kcal)+"kcal 입니다."); // 계산 결과를 화면에 표시
-                        Toast.makeText(MainActivity.this, "하루 필요 칼로리는"+user.user_kcal + "Kcal 입니다", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ResearchActivity.this, "하루 필요 칼로리는"+user.user_kcal + "Kcal 입니다", Toast.LENGTH_SHORT).show();
                         Start.setText("Meal Mate 시작하기");
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ResearchActivity.this);
                         builder.setTitle("저장")
                                 .setMessage("계산 결과를 저장하시겠습니까?")
 
@@ -149,7 +150,7 @@ public class ResearchActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         // 사용자의 정보들을 DB에 저장하는 코드 작성
-                                        Toast.makeText(MainActivity.this, "저장되었습니다.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ResearchActivity.this, "저장되었습니다.", Toast.LENGTH_SHORT).show();
                                         //홈화면으로 넘어감 StartActivity
                                     }
                                 })
@@ -241,7 +242,7 @@ public class ResearchActivity extends AppCompatActivity {
                 user.user_purpose="Maintain(유지,관리)";
                 break;
             default:
-                Toast.makeText(MainActivity.this,"식단, 목적을 선택해야합니다",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ResearchActivity.this,"식단, 목적을 선택해야합니다",Toast.LENGTH_SHORT).show();
         }
     }
 

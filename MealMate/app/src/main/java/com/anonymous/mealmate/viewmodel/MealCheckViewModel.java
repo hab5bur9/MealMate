@@ -29,4 +29,5 @@ public class MealCheckViewModel extends AndroidViewModel {
     public void update(Meal meal) { mealRepository.updateMeal(meal); }
 
     public void delete(Meal meal) { mealRepository.deleteMeal(meal); }
+
 }

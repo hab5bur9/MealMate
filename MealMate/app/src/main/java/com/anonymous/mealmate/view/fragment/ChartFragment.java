@@ -42,6 +42,7 @@ private BarChart barChart;
         completionPercentages.add(60f);
         completionPercentages.add(50f);
         completionPercentages.add(40f);
+        completionPercentages.add(30f);
         // ...
 
         // BarEntry 리스트 생성
@@ -74,7 +75,7 @@ private BarChart barChart;
             }
         });
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setGranularity(1f);
+        xAxis.setGranularity(1f);//x축값 사이 간격
 
         // Y축 설정 (완료도 퍼센트)
         YAxis yAxisLeft = barChart.getAxisLeft();
