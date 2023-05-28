@@ -7,6 +7,16 @@
     android:background=""
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="53dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/btn_back_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ViewFlipper
         android:id="@+id/vf_survey"
         android:layout_width="254dp"
