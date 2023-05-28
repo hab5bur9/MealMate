@@ -4,32 +4,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25px" >
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="10dp">
 
         <TextView
-            android:id="@+id/tv_meal_subItem_info"
+            android:id="@+id/tv_meal_subItem_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="음식명"
+            android:fontFamily="@font/notosans_medium"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="음식 정보 출력 textView"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- 음식 삭제하기-->
+        <TextView
+            android:id="@+id/tv_meal_subItem_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:fontFamily="@font/notosans_medium"
+            android:text="000g"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_meal_subItem_delete"
+            app:layout_constraintStart_toEndOf="@id/tv_meal_subItem_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 음식 삭제하기 -->
         <Button
             android:id="@+id/btn_meal_subItem_delete"
-            android:text="삭제"
-            android:layout_width="160px"
-            android:layout_height="80px"
-            android:layout_marginRight="30px"
-            android:background="@drawable/btn_round_color"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_delete"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.499" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_meal_subItem_amount"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

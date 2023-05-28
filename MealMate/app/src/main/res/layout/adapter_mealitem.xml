@@ -8,53 +8,86 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="15px"
-        android:padding="30px"
-        android:background="@drawable/frame_meal">
+        android:layout_marginBottom="20dp">
 
-        <TextView
-            android:id="@+id/tv_meal_item_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="식단 구분 TextView"
-            android:textSize="50px"
+        <!-- 끼니 삭제하기 -->
+        <Button
+            android:id="@+id/btn_meal_item_delete"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_delete"
+            app:layout_constraintRight_toLeftOf="@id/cl_meal_item"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_meal_subItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_meal_item_info"
-            tools:itemCount="3"
-            tools:listitem="@layout/adapter_mealsubitem"/>
-
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_meal_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="30px"
-            app:layout_constraintTop_toBottomOf="@id/rv_meal_subItem">
+            android:layout_marginLeft="45dp"
+            android:layout_marginBottom="16dp"
+            android:padding="10dp"
+            android:background="@drawable/style_box_90"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btn_meal_item_delete"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_meal_item_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/notosans_medium"
+                android:includeFontPadding="false"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@id/rv_meal_subItem"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv_meal_item_info_text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_meal_item_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/notosans_medium"
+                android:includeFontPadding="false"
+                android:text="끼"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@id/rv_meal_subItem"
+                app:layout_constraintLeft_toRightOf="@id/tv_meal_item_info"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_meal_subItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_meal_item_info_text"
+                tools:itemCount="3"
+                tools:listitem="@layout/adapter_mealsubitem" />
 
             <!-- 음식 추가하기 -->
             <Button
                 android:id="@+id/btn_meal_subItem_add"
-                android:text="음식 추가하기"
-                android:layout_width="500px"
-                android:layout_height="100px"
-                android:background="@drawable/btn_square_long_color"
+                android:text="음식 추가"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:layout_width="240dp"
+                android:layout_height="38dp"
+                android:background="@drawable/btn_meal_item_add"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/btn_meal_item_delete"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!-- 끼니 삭제하기 -->
-            <Button
-                android:id="@+id/btn_meal_item_delete"
-                android:text="끼니 삭제"
-                android:layout_width="300px"
-                android:layout_height="100px"
-                android:background="@drawable/btn_square_color"
-                app:layout_constraintLeft_toRightOf="@id/btn_meal_subItem_add"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btn_meal_subItem_add" />
+                app:layout_constraintTop_toBottomOf="@id/rv_meal_subItem" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
