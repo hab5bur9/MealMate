@@ -7,8 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:background="@color/trans">
 
         <TextView
             android:id="@+id/tv_survey_title"
@@ -28,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:padding="15dp"
-            android:background="@drawable/style_box_blue"
+            android:background="@drawable/style_box_70"
             android:hint="이름"
             android:inputType="text"
             android:maxLines="1"

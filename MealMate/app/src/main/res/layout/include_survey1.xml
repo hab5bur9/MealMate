@@ -7,6 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/trans"
         >
 
         <TextView
@@ -28,7 +29,7 @@
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_margin="16dp"
-            android:background="@drawable/style_box_blue"
+            android:background="@drawable/style_box_70"
             android:hint="키(cm)"
             android:inputType="numberDecimal"
             android:padding="16dp"
@@ -42,7 +43,7 @@
             android:layout_height="60dp"
             android:layout_margin="16dp"
             android:padding="16dp"
-            android:background="@drawable/style_box_blue"
+            android:background="@drawable/style_box_70"
             android:hint="몸무게(kg)"
             android:inputType="numberDecimal"
             app:layout_constraintTop_toBottomOf="@id/et_user_height"
@@ -55,7 +56,7 @@
             android:layout_height="60dp"
             android:layout_margin="16dp"
             android:padding="16dp"
-            android:background="@drawable/style_box_blue"
+            android:background="@drawable/style_box_70"
             android:hint="나이"
             android:inputType="numberDecimal"
             app:layout_constraintTop_toBottomOf="@id/et_user_weight"
