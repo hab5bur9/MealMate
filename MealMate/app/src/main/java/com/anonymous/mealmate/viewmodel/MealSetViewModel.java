@@ -126,6 +126,9 @@ public class MealSetViewModel extends AndroidViewModel {
 //            foodRepository.insertFood(food);
 //        }
     }
+    public void onFoodAdded(Food food){
+
+    }
 
 }
 

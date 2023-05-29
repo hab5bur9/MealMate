@@ -55,7 +55,7 @@ public class CalendarFragment extends Fragment {
 
                 Date date = Date.getInstance();
                 date.set(month,dayOfMonth,calendar.get(Calendar.DAY_OF_WEEK));
-                //
+                binding.includeMealList.includeDatetimeInfo.setDate(date);
             }
         });
 

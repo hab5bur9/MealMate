@@ -97,7 +97,6 @@ public class MealCheckViewModel extends AndroidViewModel {
 
     public void onChangeMealPlan(){
         ControlViewState.getInstance().activeIntentSignal(ControlViewState.INTENT_MAIN_TO_SETMEAL);
-
     }
 
 
