@@ -88,15 +88,7 @@ public class FoodApiRepository {
     private List<Food> convertItemsToFood(List<FoodApiHelper.ResponseClass.Body.Item> items) {
         List<Food> foods = new ArrayList<>();
         for (FoodApiHelper.ResponseClass.Body.Item item : items) {
-            foods.add(new Food(
-                    item.getFood_name(),
-                    item.getFood_1serving(),
-                    item.getFood_kcal(),
-                    item.getFood_carbohydrates(),
-                    item.getFood_protein(),
-                    item.getFood_fat(),
-                    item.getFood_company()
-            ));
+            foods.add(new Food(item.getFood_name(), item.getFood_1serving(), item.getFood_kcal(), item.getFood_carbohydrates(), item.getFood_protein(), item.getFood_fat(), item.getFood_company()));
         }
         return foods;
     }

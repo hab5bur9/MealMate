@@ -43,27 +43,21 @@ public class FoodFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         //binding Setting
         foodViewModel = new ViewModelProvider(this).get(FoodViewModel.class);
         binding = FragmentFoodBinding.inflate(inflater, container, false);
         binding.setLifecycleOwner(this);
         binding.setFoodViewModel(foodViewModel);
-        //view = inflater.inflate(R.layout.fragment_food, container, false);
 
-        //recycler view setup
-        //mRecyclerView = view.findViewById(R.id.rv_food_search);
         mRecyclerView = binding.rvFoodSearch;
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //mRecyclerView.scrollToPosition(((LinearLayoutManager) mRecyclerView.getLayoutManager()).findFirstCompletelyVisibleItemPosition());
 
         mAdapter = new FoodAdapter(new FoodAdapter.FoodDiff(),foodViewModel, getViewLifecycleOwner());
         mRecyclerView.setAdapter(mAdapter);
-
         //recycler view end
 
 
         //observer setup
-
         foodViewModel.getAllFoods().observe(getViewLifecycleOwner(), new Observer<List<Food>>() {
             @Override
             public void onChanged(List<Food> foods) {
@@ -75,21 +69,6 @@ public class FoodFragment extends Fragment {
         });
         //observer end
 
-        //btnFoodSearch=view.findViewById(R.id.btn_food_search);
-//        btnFoodSearch=binding.btnFoodSearch;
-//        btnFoodSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //test Event
-//                //EditText et = view.findViewById(R.id.et_food_search);
-//                EditText et = binding.etFoodSearch;
-//                String foodName = et.getText().toString();
-//                foodViewModel.insert(new Food(foodName,0,0,0,0,0));
-//                et.setText("");
-//            }
-//        });
-
-        //return view;
         return binding.getRoot();
     }
 }
