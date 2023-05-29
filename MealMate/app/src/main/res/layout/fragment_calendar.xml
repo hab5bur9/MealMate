@@ -6,18 +6,40 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="60px">
+        android:background="@drawable/background_main">
+
+        <!-- 로고 -->
+        <TextView
+            android:id="@+id/style_logo"
+            android:text="meal mate"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:fontFamily="@font/KaushanScript_Regular"
+            android:layout_width="149dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <CalendarView
             android:id="@+id/cv_meal_info"
-            android:layout_width="match_parent"
+            android:background="@drawable/style_box_70"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginVertical="30dp"
+            android:focusedMonthDateColor="@color/pink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/style_logo" />
 
         <include
             layout="@layout/include_meallist"
-            android:layout_width="match_parent"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_meal_info" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
