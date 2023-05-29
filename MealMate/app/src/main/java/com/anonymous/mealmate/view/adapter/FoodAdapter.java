@@ -22,6 +22,8 @@ import com.anonymous.mealmate.databinding.FragmentFoodBinding;
 import com.anonymous.mealmate.model.entity.Food;
 import com.anonymous.mealmate.viewmodel.FoodViewModel;
 
+import java.util.List;
+
 
 public class FoodAdapter extends ListAdapter<Food,FoodAdapter.FoodViewHolder>{
     //lifecycle 순서 - > 생성자 실행후 -> onCreateViewHolder  -> FoodViewHolder 생성자 실행후 hold 메모리에 유지
@@ -45,6 +47,9 @@ public class FoodAdapter extends ListAdapter<Food,FoodAdapter.FoodViewHolder>{
         public boolean areContentsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
             return oldItem.getFoodName().equals(newItem.getFoodName());
         }
+    }
+    public void setFoods(List<Food> foods) {
+        submitList(foods);
     }
 
     public static class FoodViewHolder extends RecyclerView.ViewHolder{

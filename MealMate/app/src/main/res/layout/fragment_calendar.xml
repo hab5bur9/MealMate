@@ -3,7 +3,24 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+<<<<<<< Updated upstream
     <androidx.constraintlayout.widget.ConstraintLayout
+=======
+
+    <data>
+
+        <variable
+            name="MealCheckViewModel"
+            type="com.anonymous.mealmate.viewmodel.MealCheckViewModel" />
+
+        <variable
+            name="Date"
+            type="com.anonymous.mealmate.feature.Date" />
+
+    </data>
+
+    <ScrollView
+>>>>>>> Stashed changes
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp">
@@ -11,6 +28,7 @@
         <CalendarView
             android:id="@+id/cv_meal_info"
             android:layout_width="match_parent"
+<<<<<<< Updated upstream
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -21,4 +39,53 @@
             app:layout_constraintTop_toBottomOf="@id/cv_meal_info" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+            android:layout_height="match_parent"
+            android:background="@color/trans">
+
+            <!-- 로고 -->
+            <TextView
+                android:id="@+id/style_logo"
+                android:layout_width="149dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/kaushanscript_regular"
+                android:text="meal mate"
+                android:textColor="@color/white"
+                android:textSize="35dp"
+                android:onClick="@{(view) -> MealCheckViewModel.onLoadMeal(view)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CalendarView
+                android:id="@+id/cv_meal_info"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:background="@drawable/style_box_70"
+                android:focusedMonthDateColor="@color/pink"
+                android:onDateChangeListener = "@{(view,year,month,dayOfMonth) ->MealCheckViewModel.onDateSelected(view, year,month,dayOfMonth)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/style_logo" />
+            <!--        android:onDateChanged="@{(view,year,month,dayOfMonth) -> MealCheckViewModel.onSelectedDayChange(view,year,month,dayOfMonth)}"-->
+
+
+            <include
+                android:id="@+id/include_meal_list"
+                layout="@layout/include_meallist"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:Date="@{Date}"
+                app:MealCheckViewModel="@{MealCheckViewModel}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cv_meal_info" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+>>>>>>> Stashed changes
 </layout>

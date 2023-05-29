@@ -2,8 +2,13 @@ package com.anonymous.mealmate.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< Updated upstream
 import android.view.View;
 import android.widget.ListView;
+=======
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+>>>>>>> Stashed changes
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         cf = new CalendarFragment();
         flf = new FoodFragment();
 
+<<<<<<< Updated upstream
         findViewById(R.id.btn_navigation_home).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         findViewById(R.id.btn_navigation_calendar).setOnClickListener(new View.OnClickListener() {
+=======
+
+
+        homeFragment = new HomeFragment();
+        calendarFragment = new CalendarFragment();
+        foodFragment = new FoodFragment();
+        userFragment = new UserFragment();
+        fragmentManager.beginTransaction().replace(R.id.fl_navigation, homeFragment);
+
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+>>>>>>> Stashed changes
             @Override
             public void onClick(View v) {
 
@@ -60,7 +77,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+<<<<<<< Updated upstream
         findViewById(R.id.btn_navigation_food).setOnClickListener(new View.OnClickListener() {
+=======
+        binding.bottomNavigationView.setItemIconTintList(null);
+
+        binding.fabMealModify.setOnClickListener((v) ->{
+            ControlViewState.getInstance().activeIntentSignal(ControlViewState.INTENT_MAIN_TO_SETMEAL);
+        });
+
+        //observe active signal
+        ControlViewState.getInstance().getStateSignalLiveData().observe(this, new Observer<Integer>() {
+>>>>>>> Stashed changes
             @Override
             public void onClick(View v) {
 

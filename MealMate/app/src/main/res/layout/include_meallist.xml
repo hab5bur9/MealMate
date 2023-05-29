@@ -23,6 +23,7 @@
             tools:listitem="@layout/adapter_meal"
             tools:itemCount="3"/>
 
+<<<<<<< Updated upstream
         <Button
             android:id="@+id/btn_meal_modify"
             android:layout_width="300dp"
@@ -36,5 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/rv_meal_loading" />
 
 
+=======
+>>>>>>> Stashed changes
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

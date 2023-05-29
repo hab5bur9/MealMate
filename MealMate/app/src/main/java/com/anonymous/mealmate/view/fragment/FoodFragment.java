@@ -73,7 +73,7 @@ public class FoodFragment extends Fragment {
                 //observe 함수 작성
                 mAdapter.submitList(foods);
                 //testing toast message
-                Toast.makeText(getContext(), "foodListAcessComplete!!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "foodListAcessComplete!!", Toast.LENGTH_SHORT).show();
             }
         });
         //observer end

@@ -33,6 +33,10 @@ public class Food {
         this.foodProtein = foodProtein;
         this.foodFat = foodFat;
     }
+    @Ignore
+    public Food(String name){
+        foodName=name;
+    }
 
     // getter methods...
     public int getFoodIndex() { return foodIndex; }
@@ -45,4 +49,14 @@ public class Food {
 
     //test
     public void setFoodIndex(int foodIndex) {this.foodIndex = foodIndex;}
+<<<<<<< Updated upstream
 }
+=======
+
+    public void setFoodLike(int foodLike) {
+        this.foodLike = foodLike;
+    }
+
+
+}
+>>>>>>> Stashed changes

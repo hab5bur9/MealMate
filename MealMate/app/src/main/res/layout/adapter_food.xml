@@ -20,9 +20,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:layout_marginVertical="10dp"
         android:background="@drawable/frame_food"
         android:padding="5dp">
+=======
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/style_box_90"
+        android:padding="10dp">
+
+        <!-- 삭제 버튼 혹시 모르니까 -->
+        <Button
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/btn_delete"
+            android:onClick="@{() -> FoodViewModel.onDeleteFood(Food)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+>>>>>>> Stashed changes
 
         <!-- 메뉴이름 -->
         <TextView
@@ -151,7 +168,35 @@
 
         </LinearLayout>
 
+<<<<<<< Updated upstream
         <!--추가-->
+=======
+        <!-- 한끼 권장량 -->
+        <LinearLayout
+            android:id="@+id/ll_food_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            app:layout_constraintLeft_toLeftOf="@id/ll_food_nutrition_kcal"
+            app:layout_constraintTop_toBottomOf="@id/ll_food_nutrition_kcal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:text="한끼 권장량 :" />
+
+            <TextView
+                android:id="@+id/et_food_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@{``+Food.food1serving}" />
+
+        </LinearLayout>
+
+        <!-- 추가버튼 -->
+>>>>>>> Stashed changes
         <Button
             android:id="@+id/btn_food_add"
             android:layout_width="89dp"

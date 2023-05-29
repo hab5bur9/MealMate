@@ -16,7 +16,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+<<<<<<< Updated upstream
 import com.anonymous.mealmate.R;
+=======
+import com.anonymous.mealmate.databinding.FragmentCalendarBinding;
+import com.anonymous.mealmate.feature.ControlViewState;
+import com.anonymous.mealmate.feature.Date;
+>>>>>>> Stashed changes
 import com.anonymous.mealmate.model.entity.Meal;
 import com.anonymous.mealmate.view.adapter.MealAdapter;
 import com.anonymous.mealmate.viewmodel.MealCheckViewModel;
@@ -39,6 +45,7 @@ public class CalendarFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_calendar, container, false);
 
+<<<<<<< Updated upstream
         // calendar view click event
         ((CalendarView) view.findViewById(R.id.cv_meal_info)).setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -48,6 +55,8 @@ public class CalendarFragment extends Fragment {
 
             }
         });
+=======
+>>>>>>> Stashed changes
 
         mAdapter = new MealAdapter(new MealAdapter.MealDiff());
         //recycler view set up
@@ -66,7 +75,17 @@ public class CalendarFragment extends Fragment {
                 mAdapter.submitList(meals);
 
                 //testing toast message
-                Toast.makeText(getContext(), "calendar fragment access complete", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "calendar fragment access complete", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ControlViewState.getInstance().getStateSignalLiveData().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                switch(integer){
+                    case ControlViewState.DATE_CHANGED:
+                        binding.includeMealList.includeDatetimeInfo.setDate(Date.getInstance());
+                }
             }
         });
 

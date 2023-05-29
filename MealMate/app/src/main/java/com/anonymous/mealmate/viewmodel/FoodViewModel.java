@@ -57,7 +57,11 @@ public class FoodViewModel extends AndroidViewModel {
 
         //test
         Toast.makeText(view.getContext(), inputFoodName, Toast.LENGTH_SHORT).show();
+<<<<<<< Updated upstream
         foodRepository.insertFood(new Food(inputFoodName,300,200,1000,444));
+=======
+        foodRepository.insertFood(new Food(inputFoodName));
+>>>>>>> Stashed changes
         //String foodName = ((EditText)view).getText().toString();
     }
 
@@ -78,6 +82,9 @@ public class FoodViewModel extends AndroidViewModel {
         foodRepository.updateFood(food);
 
         //test
+    }
+    public void onDeleteFood(Food food){
+        foodRepository.deleteFood(food);
     }
 
     public void onAddFood(View view){

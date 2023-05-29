@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.anonymous.mealmate.R;
 import com.anonymous.mealmate.databinding.FragmentHomeBinding;
 import com.anonymous.mealmate.model.entity.Meal;
+import com.anonymous.mealmate.model.entity.User;
 import com.anonymous.mealmate.view.adapter.MealAdapter;
 import com.anonymous.mealmate.viewmodel.MealCheckViewModel;
 import com.anonymous.mealmate.viewmodel.MealSetViewModel;
@@ -46,7 +47,17 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+<<<<<<< Updated upstream
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+=======
+        mealCheckViewModel = new ViewModelProvider(this).get(MealCheckViewModel.class);
+       // binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding.setLifecycleOwner(this);
+        binding.setMealCheckViewModel(mealCheckViewModel);
+        binding.setDate(Date.getInstance()); // 오늘 날짜로 기본 세팅
+        binding.setUser(new User("서현승",User.GENDER_MALE,178,74,User.ACTIVITY_RATIO_HIGH,User.PURPOSE_DIET));
+>>>>>>> Stashed changes
 
 
 
@@ -76,7 +87,7 @@ public class HomeFragment extends Fragment {
                 mAdapter.submitList(meals);
 
                 //testing toast message
-                Toast.makeText(getContext(), "test success", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "test success", Toast.LENGTH_SHORT).show();
             }
         });
         // observer end
