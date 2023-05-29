@@ -92,7 +92,7 @@ public class ChartFragment extends AppCompatActivity {
 
         // 막대 차트 회전 및 크기 조정
         barChart.setRotation(-90);
-        barChart.getLayoutParams().width = (int) (barWidth * completionPercentages.size() * 200); // 적절한 크기 조정
+        barChart.getLayoutParams().width = (int) (barWidth * completionPercentages.size() * 400); // 적절한 크기 조정,막대 간격 조절
 
         barChart.invalidate();
     }
