@@ -1,0 +1,65 @@
+<!-- survey_page3.xml -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="70dp">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="활동량을 선택해주세요"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupActivityLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonSedentary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정적인 활동 (운동 거의 안 함)" />
+
+        <RadioButton
+            android:id="@+id/radioButtonLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="가벼운 활동 (하루 1-2회 운동)" />
+
+        <RadioButton
+            android:id="@+id/radioButtonModerate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보통 활동 (주 3-4회 운동)" />
+
+        <RadioButton
+            android:id="@+id/radioButtonActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="적극적인 활동 (주 5-6회 운동)" />
+
+        <RadioButton
+            android:id="@+id/radioButtonVeryActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="매우 활발한 활동 (매일 운동)" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
