@@ -94,7 +94,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_food_search"
-            android:layout_width="320dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"

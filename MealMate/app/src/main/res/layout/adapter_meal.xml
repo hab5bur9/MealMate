@@ -4,61 +4,94 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
-    <androidx.constraintlayout.widget.ConstraintLayout
 
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10px"
-        android:padding="25px"
-        android:background="@drawable/frame_meal">
+        android:layout_marginBottom="10dp"
+        android:background="@color/trans">
 
-        <TextView
-            android:id="@+id/tv_meal_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="식단 정보"
-            android:textStyle="bold"
-            android:textSize="45px"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_meal_menu"/>
-
-        <!--음식 추가되는 만큼 늘어나는거라 textView로 정할 수 없음-->
-        <LinearLayout
-            android:id="@+id/ll_meal_menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_meal_info"
-            app:layout_constraintBottom_toBottomOf="parent">
-            <!-- 이부분 자바에서 처리-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="1. 메뉴 1" />-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="2. 메뉴 2"/>-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="3. 메뉴 3" />-->
-
-            <!-- 여기 까지 자바에서 add-->
-        </LinearLayout>
-
+        <!-- 체크박스 -->
         <Button
             android:id="@+id/btn_meal_check"
-            android:layout_width="90px"
-            android:layout_height="90px"
-            android:layout_marginRight="30px"
-            android:background="@drawable/btn_checkbox_before"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_checkbox"
+            app:layout_constraintRight_toLefttOf="@id/cl_meal"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <!--        android:onClick="@{ViewModel_CheckMeal::onChecked}"-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_meal"
+            android:padding="10dp"
+            android:background="@drawable/style_box_70"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btn_meal_check"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- 식단정보 : 몇끼인지 -->
+            <TextView
+                android:id="@+id/tv_meal_info"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:fontFamily="@font/notosans_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="6dp"
+                android:includeFontPadding="false"
+                app:layout_constraintBottom_toTopOf="@id/ll_meal_menu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv_meal_info_text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_meal_info_text"
+                android:text="끼"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:fontFamily="@font/notosans_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="6dp"
+                android:includeFontPadding="false"
+                app:layout_constraintBottom_toTopOf="@id/ll_meal_menu"
+                app:layout_constraintLeft_toRightOf="@id/tv_meal_info"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--음식 추가되는 만큼 늘어나는거라 textView로 정할 수 없음-->
+            <LinearLayout
+                android:id="@+id/ll_meal_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/tv_meal_info">
+                <!-- 이부분 자바에서 처리-->
+                <!--            <TextView-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="1. 메뉴 1" />-->
+                <!--            <TextView-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="2. 메뉴 2"/>-->
+                <!--            <TextView-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="3. 메뉴 3" />-->
+
+                <!-- 여기 까지 자바에서 add-->
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
