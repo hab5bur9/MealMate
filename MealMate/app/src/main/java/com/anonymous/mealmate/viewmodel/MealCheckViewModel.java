@@ -11,22 +11,22 @@ import com.anonymous.mealmate.model.repository.MealRepository;
 import java.util.List;
 
 public class MealCheckViewModel extends AndroidViewModel {
-    private final MealRepository mealRepository;
+    private final MealRepository repository;
     private final LiveData<List<Meal>> allMeals;
 
     public MealCheckViewModel (Application application) {
         super(application);
-        mealRepository = MealRepository.getInstance(application);
+        repository = MealRepository.getInstance(application);
 
         /*repository = new MealRepository(application);*/
-        allMeals = mealRepository.getAllMeals();
+        allMeals = repository.getAllMeals();
     }
 
     public LiveData<List<Meal>> getAllMeals() { return allMeals; }
 
-    public void insert(Meal meal) { mealRepository.insertMeal(meal); }
+    public void insert(Meal meal) { repository.insertMeal(meal); }
 
-    public void update(Meal meal) { mealRepository.updateMeal(meal); }
+    public void update(Meal meal) { repository.updateMeal(meal); }
 
-    public void delete(Meal meal) { mealRepository.deleteMeal(meal); }
+    public void delete(Meal meal) { repository.deleteMeal(meal); }
 }
