@@ -1,43 +1,57 @@
 package com.anonymous.mealmate.model.entity;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity(tableName = "meal",foreignKeys = @ForeignKey(entity = Food.class, parentColumns = "foodIndex", childColumns = "foodIndex"))
+//@Entity(tableName = "meal"
+//        //foreignKeys = @ForeignKey(entity = Food.class, parentColumns = "foodIndex", childColumns = "foodIndex")
+//)
+@Entity(tableName = "meal", indices = {@Index("mealDate")})
 public class Meal {
+    //0529 backend 통합완료
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name ="mealIndex")
     private int mealIndex;
 
+    @ColumnInfo(name ="mealDate")
     private String mealDate;
+
+    @ColumnInfo(name ="mealCnt")
     private int mealCnt;
 
-
-    private int mealFoodAmount;
-
-    @ColumnInfo(name = "foodIndex")
-    private int foodIndex;
-
-    @ColumnInfo(name ="checked")
+    @ColumnInfo(name = "checked")
     private int checked;
 
-    //test
-    @Ignore
-    private List<Food> food;
 
-    public Meal(String mealDate, int mealCnt, int mealFoodAmount, int foodIndex, int checked) {
+    @Ignore
+    public static final int CHECKED = 1;
+    @Ignore
+    public static final int UNCHECKED= 0;
+
+    @Ignore
+    public Meal(String mealDate, int mealCnt) {
         this.mealDate = mealDate;
         this.mealCnt = mealCnt;
-        this.mealFoodAmount = mealFoodAmount;
-        this.foodIndex = foodIndex;
+        checked = UNCHECKED;
+//        this.mealFoodAmount = mealFoodAmount;
+//        this.foodIndex = foodIndex;
+//        this.checked = checked;
+    }
+
+    public Meal( String mealDate, int mealCnt, int checked) {
+
+        this.mealDate = mealDate;
+        this.mealCnt = mealCnt;
         this.checked = checked;
     }
-<<<<<<< Updated upstream
-=======
     public Meal( String mealDate, int mealCnt, int checked,List<Food> foodList) {
 
         this.mealDate = mealDate;
@@ -50,22 +64,23 @@ public class Meal {
 
     }
 
->>>>>>> Stashed changes
 
     // getter and setter methods...
     public int getMealIndex() {return mealIndex;}
+    public void setMealIndex(int mealIndex) {this.mealIndex = mealIndex;}
     public String getMealDate() {return mealDate;}
+
+    public void setMealDate(String mealDate) {
+        this.mealDate = mealDate;
+    }
+
     public int getMealCnt() {return mealCnt;}
-    public int getMealFoodAmount() {return mealFoodAmount;}
-    public void setMealFoodAmount(int mealFoodAmount) {this.mealFoodAmount = mealFoodAmount;}
-    public int getFoodIndex() {return foodIndex;}
-    public int getChecked() {return checked;}
+    public void setMealCnt(int mealNum) {
+        this.mealCnt = mealNum;
+    }
+
     public void setChecked(int checked) {this.checked = checked;}
 
-<<<<<<< Updated upstream
-    //test
-    public void setMealIndex(int mealIndex) {this.mealIndex = mealIndex;}
-=======
     public int getChecked() {return checked;}
 
     @Ignore
@@ -159,5 +174,4 @@ public class Meal {
         }
     }
 
->>>>>>> Stashed changes
 }

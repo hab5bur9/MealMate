@@ -2,61 +2,61 @@ package com.anonymous.mealmate.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< Updated upstream
-import android.view.View;
-import android.widget.ListView;
-=======
 import android.view.LayoutInflater;
 import android.view.MenuItem;
->>>>>>> Stashed changes
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentTransaction;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.anonymous.mealmate.R;
+
 import com.anonymous.mealmate.databinding.ActivityMainBinding;
+import com.anonymous.mealmate.feature.ControlViewState;
+import com.anonymous.mealmate.feature.Date;
 import com.anonymous.mealmate.view.fragment.CalendarFragment;
 import com.anonymous.mealmate.view.fragment.FoodFragment;
 import com.anonymous.mealmate.view.fragment.HomeFragment;
+import com.anonymous.mealmate.view.fragment.UserFragment;
+import com.anonymous.mealmate.viewmodel.MealCheckViewModel;
+import com.anonymous.mealmate.viewmodel.UserViewModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    HomeFragment hf;
-    CalendarFragment cf;
-    FoodFragment flf;
-    FragmentTransaction ft;
+    private HomeFragment homeFragment;
+    private CalendarFragment calendarFragment;
+    private FoodFragment foodFragment;
 
-    ActivityMainBinding binding;
+    private UserFragment userFragment;
 
-    final int frame = R.id.fl_navigation;
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+
+    private ActivityMainBinding binding;
+
+    // test 용 뷰모델 mainactivity에서 뷰모델 모두 생성한다음 fragment에 넘기기 vs 프래그먼트에서 자체 생성 2안이 나아보임
+    // dateChange되면 meal load를 갱신하기위한 observer mainactivity에서 구현
+    private MealCheckViewModel mealCheckViewModel;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        mealCheckViewModel = new ViewModelProvider(this).get(MealCheckViewModel.class);
+        //setContentView(R.layout.activity_main);
 
 
-        hf = new HomeFragment();
-        cf = new CalendarFragment();
-        flf = new FoodFragment();
+        //binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
+        binding.setLifecycleOwner(this);
+        binding.setSelectedDate(Date.getInstance());
+        setContentView(binding.getRoot());
 
-<<<<<<< Updated upstream
-        findViewById(R.id.btn_navigation_home).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(frame, hf);
-                ft.addToBackStack(null);
-                ft.commit();
-            }
-        });
-
-
-        findViewById(R.id.btn_navigation_calendar).setOnClickListener(new View.OnClickListener() {
-=======
 
 
         homeFragment = new HomeFragment();
@@ -66,20 +66,25 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.fl_navigation, homeFragment);
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
->>>>>>> Stashed changes
             @Override
-            public void onClick(View v) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.item_navigation_home:
+                        fragmentManager.beginTransaction().replace(R.id.fl_navigation, homeFragment).commit();
+                        Date.getInstance().setToDayDateTime();
+                    return true;
+                    case R.id.item_navigation_calendar:fragmentManager.beginTransaction().replace(R.id.fl_navigation, calendarFragment).commit();
+                    return true;
+                    case R.id.item_navigation_food:fragmentManager.beginTransaction().replace(R.id.fl_navigation, foodFragment).commit();
+                    return true;
+                    case R.id.item_navigation_user:fragmentManager.beginTransaction().replace(R.id.fl_navigation,userFragment).commit();
+                    return true;
 
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(frame, cf);
-                ft.addToBackStack(null);
-                ft.commit();
+                    default: return false;
+                }
             }
         });
 
-<<<<<<< Updated upstream
-        findViewById(R.id.btn_navigation_food).setOnClickListener(new View.OnClickListener() {
-=======
         binding.bottomNavigationView.setItemIconTintList(null);
 
         binding.fabMealModify.setOnClickListener((v) ->{
@@ -88,29 +93,22 @@ public class MainActivity extends AppCompatActivity {
 
         //observe active signal
         ControlViewState.getInstance().getStateSignalLiveData().observe(this, new Observer<Integer>() {
->>>>>>> Stashed changes
             @Override
-            public void onClick(View v) {
+            public void onChanged(Integer signal) {
+                Intent intent;
+                switch (signal){
+                    case ControlViewState.INTENT_MAIN_TO_SETMEAL:
+                        intent = new Intent(MainActivity.this,SetMealItemActivity.class);
+                        startActivity(intent); break;
+                    case ControlViewState.INTENT_MAIN_TO_USERUPDATEDATA:
+                        intent = new Intent(MainActivity.this,UserDataUpdateActivity.class);
+                        startActivity(intent); break;
+                    default:return;
+                }
 
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(frame, flf);
-                ft.addToBackStack(null);
-                ft.commit();
             }
         });
-//
-//        findViewById(R.id.btnMyPage).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
 
 
-    }
-
-    public void onStartActivity(View view){
-        Intent intent = new Intent(MainActivity.this,SetMealItemActivity.class);
-        startActivity(intent);
     }
 }

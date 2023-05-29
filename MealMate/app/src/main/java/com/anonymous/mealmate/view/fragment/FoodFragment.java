@@ -27,15 +27,12 @@ import java.util.List;
 public class FoodFragment extends Fragment {
 
 
-    private View view;
-
     private FoodAdapter mAdapter;
 
     private RecyclerView mRecyclerView;
 
     private FoodViewModel foodViewModel;
 
-    private Button btnFoodSearch;
 
     private FragmentFoodBinding binding;
 

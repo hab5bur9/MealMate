@@ -1,10 +1,18 @@
 package com.anonymous.mealmate.viewmodel;
 
 import android.app.Application;
+import android.view.View;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
+import com.anonymous.mealmate.feature.ControlViewState;
+import com.anonymous.mealmate.feature.Date;
+import com.anonymous.mealmate.model.entity.Food;
 import com.anonymous.mealmate.model.entity.Meal;
 import com.anonymous.mealmate.model.repository.MealRepository;
 
@@ -18,32 +26,29 @@ public class MealCheckViewModel extends AndroidViewModel {
 
 
 
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
     public MealCheckViewModel (Application application) {
         super(application);
         mealRepository = MealRepository.getInstance(application);
 
         /*repository = new MealRepository(application);*/
         allMeals = mealRepository.getAllMeals();
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
     }
+
 
     public LiveData<List<Meal>> getAllMeals() { return allMeals; }
 
     public void insert(Meal meal) { mealRepository.insertMeal(meal); }
 
+//    public void insert(){
+//        mealRepository.insertMeal(new Meal("230524",0));
+//    }
+
     public void update(Meal meal) { mealRepository.updateMeal(meal); }
 
     public void delete(Meal meal) { mealRepository.deleteMeal(meal); }
-<<<<<<< Updated upstream
-=======
 
 
     //binding method, do not erase
@@ -116,5 +121,4 @@ public class MealCheckViewModel extends AndroidViewModel {
 //        //view.setBackgroundResource( checked ? R.drawable.btn_back : R.drawable.btn_cancle) ;
 //    }
 
->>>>>>> Stashed changes
 }

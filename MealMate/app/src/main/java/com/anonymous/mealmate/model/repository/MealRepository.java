@@ -60,15 +60,20 @@ public class MealRepository {
         return mealDao.getAllMeals();
     }
 
+    // 날짜를 기준으로 Meal을 가져오는 메서드
     public LiveData<List<Meal>> getMealsByDate(String mealDate) {
         return mealDao.getMealsByDate(mealDate);
     }
 
-    public LiveData<List<Meal>> getMealsByFoodIndex(int foodIndex) {
-        return mealDao.getMealsByFoodIndex(foodIndex);
-    }
+//    public LiveData<List<Meal>> getMealsByFoodIndex(int foodIndex) {
+//        return mealDao.getMealsByFoodIndex(foodIndex);
+//    }
 
     public LiveData<List<Meal>> getCheckedMeals() {
         return mealDao.getCheckedMeals();
+    }
+
+    public void setMealDate(String date){
+
     }
 }

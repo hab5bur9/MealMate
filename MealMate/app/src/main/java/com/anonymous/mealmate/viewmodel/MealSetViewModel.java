@@ -1,39 +1,60 @@
 package com.anonymous.mealmate.viewmodel;
 
 import android.app.Application;
+import android.view.View;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
+import com.anonymous.mealmate.feature.ControlViewState;
+import com.anonymous.mealmate.model.entity.Food;
 import com.anonymous.mealmate.model.entity.Meal;
 import com.anonymous.mealmate.model.repository.FoodRepository;
+import com.anonymous.mealmate.model.repository.MealFoodRepository;
 import com.anonymous.mealmate.model.repository.MealRepository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MealSetViewModel extends AndroidViewModel {
     private final MealRepository mealRepository;
     private final FoodRepository foodRepository;
-    private final LiveData<List<Meal>> allMeals;
+
+    //private final MealFoodRepository mealFoodRepository;
+    //db에서 받아오는 데이터가 아닌 업로할 데이터
+    private MutableLiveData<List<Meal>> mealsLiveData = new MutableLiveData<>();
+
 
     public MealSetViewModel(Application application) {
         super(application);
         mealRepository = MealRepository.getInstance(application);
         foodRepository = FoodRepository.getInstance(application);
+
+        //초기 값 세팅
+        List<Meal> test = new ArrayList<Meal>(Arrays.asList(new Meal(), new Meal(), new Meal()));
+        mealsLiveData.postValue(test);
+        //meals.setValue(new ArrayList<Meal>());
+
         /*repository = new MealRepository(application);*/
-        allMeals = mealRepository.getAllMeals();
+        //foods = mealRepository.getAllMeals();
+
     }
 
-    public LiveData<List<Meal>> getAllMeals() { return allMeals; }
+    /*
+        return to observer
+        옵저버가 관측할 객체 foodLiveData
+     */
+    public LiveData<List<Meal>> getMealsLiveData() {
+        return mealsLiveData;
+    }
 
-    public void insert(Meal meal) { mealRepository.insertMeal(meal); }
 
-    public void update(Meal meal) { mealRepository.updateMeal(meal); }
+    /*
+        NOTE:
+        activity_setmealitem.xml 에 바인딩 되는 method들
 
-<<<<<<< Updated upstream
-    public void delete(Meal meal) { mealRepository.deleteMeal(meal); }
-}
-=======
         onAddMealTime()
         onLoadPreset()
         onCreatePreset()
@@ -118,4 +139,3 @@ public class MealSetViewModel extends AndroidViewModel {
 //    public void update(Meal meal) { mealRepository.updateMeal(meal); }
 //
 //    public void delete(Meal meal) { mealRepository.deleteMeal(meal); }
->>>>>>> Stashed changes

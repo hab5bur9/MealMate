@@ -117,17 +117,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_food_search"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-            app:layout_constraintTop_toBottomOf="@+id/cl_food_category"
-            app:stackFromEnd="true"
-=======
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_food_category"
->>>>>>> Stashed changes
             app:reverseLayout="true"
             app:stackFromEnd="true"
             tools:itemCount="3"

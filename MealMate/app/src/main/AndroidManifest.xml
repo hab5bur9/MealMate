@@ -24,6 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.SetMealItemActivity"/>
+        <activity android:name=".view.activity.FoodActivity"/>
+        <activity android:name=".view.activity.UserDataUpdateActivity"/>
     </application>
 
 </manifest>

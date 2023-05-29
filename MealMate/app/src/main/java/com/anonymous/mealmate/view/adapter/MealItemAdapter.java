@@ -7,108 +7,152 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingComponent;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anonymous.mealmate.R;
+import com.anonymous.mealmate.databinding.AdapterMealBinding;
+import com.anonymous.mealmate.databinding.AdapterMealitemBinding;
 import com.anonymous.mealmate.model.entity.Food;
-import com.anonymous.mealmate.model.entity.Meal;
 
-import java.util.ArrayList;
+import com.anonymous.mealmate.model.entity.Meal;
+import com.anonymous.mealmate.viewmodel.MealSetViewModel;
+
 import java.util.List;
 
 
-public class MealItemAdapter extends ListAdapter<List,MealItemAdapter.MealItemViewHolder>{
+public class MealItemAdapter extends ListAdapter<Meal, MealItemAdapter.MealItemViewHolder> {
     //test용 2차원 리스트
-    private List<List> setMealItems;
+    private MealSetViewModel mealSetViewModel;
+    private LifecycleOwner lifecycleOwner;
 
-    public static class MealItemViewHolder extends RecyclerView.ViewHolder{
+    public MealItemAdapter(@NonNull DiffUtil.ItemCallback<Meal> diffCallback,MealSetViewModel mealSetViewModel, LifecycleOwner lifecycleOwner) {
+        super(diffCallback);
+        this.mealSetViewModel=mealSetViewModel;
+        this.lifecycleOwner=lifecycleOwner;
+
+    }
+    public static class MealItemViewHolder extends RecyclerView.ViewHolder {
 
 
         // 이후 변수 변경이 없으므로 final 설정
         private final RecyclerView rvMealSubItem;
         private final MealSubItemAdapter mealSubItemAdapter;
-        private final Button btnMealSubItemAdd;
-        private final Button btnMealItemDelete;
+//        private final Button btnMealSubItemAdd;
+//        private final Button btnMealItemDelete;
+        private AdapterMealitemBinding binding;
 
-        public MealItemViewHolder(@NonNull View itemView) {
-            super(itemView);
+//        public MealItemViewHolder(@NonNull View itemView) {
+//            super(itemView);
+//            // inner adapter base setting : View hold
+//            mealSubItemAdapter = new MealSubItemAdapter();
+//            rvMealSubItem = itemView.findViewById(R.id.rv_meal_subItem);
+//            rvMealSubItem.setAdapter(mealSubItemAdapter);
+//            rvMealSubItem.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
+//
+//            btnMealSubItemAdd = itemView.findViewById(R.id.btn_meal_subItem_add);
+//            btnMealItemDelete = itemView.findViewById(R.id.btn_meal_item_delete);
+//        }
+        public MealItemViewHolder(@NonNull AdapterMealitemBinding binding) {
+            super(binding.getRoot());
+            this.binding=binding;
+
             // inner adapter base setting : View hold
-            mealSubItemAdapter = new MealSubItemAdapter();
-            rvMealSubItem = itemView.findViewById(R.id.rv_meal_subItem);
-            rvMealSubItem.setAdapter(mealSubItemAdapter);
-            rvMealSubItem.setLayoutManager( new LinearLayoutManager(itemView.getContext()));
+            mealSubItemAdapter = new MealSubItemAdapter(binding.getMealSetViewModel(),binding.getLifecycleOwner());
 
-            btnMealSubItemAdd  = itemView.findViewById(R.id.btn_meal_subItem_add);
-            btnMealItemDelete = itemView.findViewById(R.id.btn_meal_item_delete);
+            //2차원 bind set
+//            rvMealSubItem = itemView.findViewById(R.id.rv_meal_subItem);
+            rvMealSubItem = binding.rvMealSubItem;
+            rvMealSubItem.setAdapter(mealSubItemAdapter);
+
+
+
+//            btnMealSubItemAdd = itemView.findViewById(R.id.btn_meal_subItem_add);
+//            btnMealItemDelete = itemView.findViewById(R.id.btn_meal_item_delete);
         }
-        public void bind(List list,int position){
+
+        public void bind(Meal meal) {
             //list 내부 자료형이 Food 가맞는지 확인해주는 검사 메소드 작성필요
             try {
-                mealSubItemAdapter.submitList((List) list.get(position));
-            }catch(Exception e ){
-                Log.d("bind Error","take care of the value of lists type");
+                //mealSubItemAdapter.submitList(meal.getFoods());
+                binding.setMeal(meal);
+                mealSubItemAdapter.submitList(meal.getFoodList().toList());
+                //subitem에 meal 정보 넘겨줌
+                mealSubItemAdapter.setMeal(meal);
+            } catch (Exception e) {
+                Log.d("bind Error", "take care of the value of lists type");
             }
         }
-
-        public static MealItemViewHolder onCreate(ViewGroup parent){
-            //view inflate : just one time , recycle at View holder
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_mealitem, parent,false);
-            return new MealItemViewHolder(view);
+        public AdapterMealitemBinding getBinding(){
+            return binding;
         }
+
+        public MealSubItemAdapter getMealSubItemAdapter() {
+            return mealSubItemAdapter;
+        }
+        //        public static MealItemViewHolder onCreate(ViewGroup parent) {
+//            //view inflate : just one time , recycle at View holder
+//            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_mealitem, parent, false);
+//
+//
+//            return new MealItemViewHolder(view);
+//        }
     }
-    public MealItemAdapter(@NonNull DiffUtil.ItemCallback<List> diffCallback,List<List> list) {
-        super(diffCallback);
-        setMealItems = list;
-    }
+
+
 
     @NonNull
     @Override
     public MealItemAdapter.MealItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //초기 1회만 실행되서 ViewHolder 세팅시작하는 메서드
-        return MealItemViewHolder.onCreate(parent);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        AdapterMealitemBinding binding = AdapterMealitemBinding.inflate(layoutInflater, parent, false);
+        binding.setLifecycleOwner(lifecycleOwner);
+        binding.setMealSetViewModel(mealSetViewModel);
+        //return MealItemViewHolder.onCreate(parent);
+        return new MealItemViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MealItemAdapter.MealItemViewHolder holder, int position) {
         //item 별 구분되는 기능 list item 개수만큼 호출됨
-        List currentList = getItem(position);
-        holder.bind(currentList,position);
-        holder.btnMealSubItemAdd.setOnClickListener(v ->{
-            currentList.add(new Food("사과",100,100,100,100));
-            //변경 필요 좀더 효율적인 notify
-            holder.mealSubItemAdapter.submitList(currentList);
-            //notifyItemRangeInserted(, 1);
+        Meal currentMeal = getItem(position);
+        holder.bind(currentMeal);
+        holder.getBinding().getMeal().getFoodList().toLivaData().observe(lifecycleOwner, new Observer<List<Food>>() {
+            @Override
+            public void onChanged(List<Food> foods) {
+                holder.getMealSubItemAdapter().submitList(foods);
+            }
         });
-        holder.btnMealItemDelete.setOnClickListener(v ->{
-            //이후 리스트 변경 안좋은코드 수정필요  임시 삭제이벤트
-            setMealItems.remove(position);
-
-            notifyItemRemoved(position);
-        });
+//        holder.btnMealSubItemAdd.setOnClickListener(v -> {
+//            //currentList.add(new Food("사과",100,100,100,100));
+//            //변경 필요 좀더 효율적인 notify
+//            holder.mealSubItemAdapter.submitList(currentMeal.getFoods());
+//            //notifyItemRangeInserted(, 1);
+//        });
+//        holder.btnMealItemDelete.setOnClickListener(v -> {
+//            //이후 리스트 변경 안좋은코드 수정필요  임시 삭제이벤트
+//            //setMealItems.remove(position);
+//
+//            //notifyItemRemoved(position);
+//        });
     }
 
-//    public static class MealItemDiff extends DiffUtil.ItemCallback<Food>{
-//        @Override
-//        public boolean areItemsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
-//            return oldItem==newItem;
-//        }
-//
-//        @Override
-//        public boolean areContentsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
-//            return oldItem.getFoodIndex() == newItem.getFoodIndex();
-//        }
-//    }
-    public static class MealItemDiff extends DiffUtil.ItemCallback<List>{
+    public static class MealItemDiff extends DiffUtil.ItemCallback<Meal> {
+
         @Override
-        public boolean areItemsTheSame(@NonNull List oldItem, @NonNull List newItem) {
-            return oldItem == newItem;
+        public boolean areItemsTheSame(@NonNull Meal oldItem, @NonNull Meal newItem) {
+            return false;
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull List oldItem, @NonNull List newItem) {
+        public boolean areContentsTheSame(@NonNull Meal oldItem, @NonNull Meal newItem) {
             return false;
         }
     }
