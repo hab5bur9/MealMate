@@ -57,9 +57,9 @@ public class MealCheckViewModel extends AndroidViewModel {
 
 
         List<Food> foods = new ArrayList<>();
-        foods.add(new Food("김치"));
-        foods.add(new Food("삼겹살"));
-        foods.add(new Food("계란"));
+        foods.add(new Food("김치",0,0,0,0,0,"", 0));
+        foods.add(new Food("삼겹살",0,0,0,0,0,"", 0));
+        foods.add(new Food("계란",0,0,0,0,0,"", 0));
 
 
         Meal meal =new Meal(selectedDateTime,1,0,foods);

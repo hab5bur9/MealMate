@@ -3,7 +3,9 @@ package com.anonymous.mealmate.model.repository;
 
 import static com.anonymous.mealmate.constants.Constants.*;
 import android.content.Context;
+import android.os.Build;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -14,6 +16,7 @@ import com.anonymous.mealmate.model.entity.Food;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,16 +57,18 @@ public class FoodApiRepository {
 
         Call<FoodApiHelper.ResponseClass> call = apiService.getFoodNtrItdntList( SERVICE_KEY, foodName, null, null, null, null, RESPONSE_TYPE );
         call.enqueue(new Callback<FoodApiHelper.ResponseClass>() {    // Callback 인터페이스를 구현한 익명 클래스 정의. 응답을 받았을 때 호출되는 메소드를 정의.
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             // onResponse 메소드: 응답을 성공적으로 받았을 때 호출되는 메소드
             public void onResponse(Call<FoodApiHelper.ResponseClass> call, Response<FoodApiHelper.ResponseClass> response) {
-                if (response.isSuccessful() && response.body() != null && response.body().getBody() != null) {
-                    List<FoodApiHelper.ResponseClass.Body.Item> items = response.body().getBody().getItems();
-                    if (items != null) {
-                        List<Food> foods = convertItemsToFood(items);
-                        searchResults.setValue(foods);
-                    }
-                }
+                Optional.ofNullable(response.body())
+                        .map(FoodApiHelper.ResponseClass::getBody)
+                        .map(FoodApiHelper.ResponseClass.Body::getItems)
+                        .ifPresent(items -> {
+                            List<Food> foods = convertItemsToFood(items);
+                            // UI Thread에서 실행됨을 확실히 하기 위해 postValue를 사용합니다.
+                            searchResults.postValue(foods);
+                        });
             }
 
             @Override
@@ -88,15 +93,7 @@ public class FoodApiRepository {
     private List<Food> convertItemsToFood(List<FoodApiHelper.ResponseClass.Body.Item> items) {
         List<Food> foods = new ArrayList<>();
         for (FoodApiHelper.ResponseClass.Body.Item item : items) {
-            foods.add(new Food(
-                    item.getFood_name(),
-                    item.getFood_1serving(),
-                    item.getFood_kcal(),
-                    item.getFood_carbohydrates(),
-                    item.getFood_protein(),
-                    item.getFood_fat(),
-                    item.getFood_company()
-            ));
+            foods.add(new Food(item.getFood_name(), item.getFood_1serving(), item.getFood_kcal(), item.getFood_carbohydrates(), item.getFood_protein(), item.getFood_fat(), item.getFood_company()));
         }
         return foods;
     }

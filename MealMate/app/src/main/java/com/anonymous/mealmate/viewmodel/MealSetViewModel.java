@@ -92,7 +92,7 @@ public class MealSetViewModel extends AndroidViewModel {
 
         List<Food> updatedFoodList = new ArrayList<>(meal.getFoodList().toList());
         //test
-        Food food = new Food("testFood");
+        Food food = new Food("testFood", 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, "test", 0);
         updatedFoodList.add(food);
         meal.getFoodList().setList(updatedFoodList);
 

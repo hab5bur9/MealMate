@@ -42,6 +42,14 @@ public class FoodActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         //recycler view end
 
+        foodViewModel.getSearchResults().observe(this, new Observer<List<Food>>() {
+            @Override
+            public void onChanged(List<Food> foods) {
+                mAdapter.setFoods(foods);
+
+                Toast.makeText(FoodActivity.this, "APIAcessComplete!!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //observer setup
         foodViewModel.getAllFoods().observe(this, new Observer<List<Food>>() {
