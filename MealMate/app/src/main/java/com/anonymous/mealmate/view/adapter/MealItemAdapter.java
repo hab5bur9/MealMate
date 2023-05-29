@@ -77,7 +77,7 @@ public class MealItemAdapter extends ListAdapter<List,MealItemAdapter.MealItemVi
         List currentList = getItem(position);
         holder.bind(currentList,position);
         holder.btnMealSubItemAdd.setOnClickListener(v ->{
-            currentList.add(new Food("사과",100,100,100,100));
+            currentList.add(new Food("사과",100,100,100,100, 100, "안녕"));
             //변경 필요 좀더 효율적인 notify
             holder.mealSubItemAdapter.submitList(currentList);
             //notifyItemRangeInserted(, 1);

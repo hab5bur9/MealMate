@@ -76,7 +76,7 @@ public class FoodFragment extends Fragment {
                 //test Event
                 EditText et = view.findViewById(R.id.et_food_search);
                 String foodName = et.getText().toString();
-                foodViewModel.insert(new Food(foodName,0,0,0,0,0));
+                foodViewModel.insert(new Food(foodName,0,0,0,0,0,"몰라"));
                 et.setText("");
             }
         });

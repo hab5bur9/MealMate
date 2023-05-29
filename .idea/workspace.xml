@@ -5,65 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37323688-5d18-42ed-a7de-31f424852c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/MealMate.zip" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/MealMate_version1.1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/assetWizardSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/modules/app/MealMate_version1.1.app.androidTest.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/modules/app/MealMate_version1.1.app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/modules/app/MealMate_version1.1.app.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/modules/app/MealMate_version1.1.app.unitTest.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/androidTest/java/shs/mobile01/mealmate_version11/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/dao/FoodDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/dao/MealDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/database/AppDatabase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/entity/Food.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/entity/Meal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/repository/FoodRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/repository/MealRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/Model/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Activity/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Activity/SetMealItemActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Adapter/FoodAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Adapter/MealAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Adapter/MealItemAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Adapter/MealSubItemAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Fragment/CalendarFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Fragment/FoodFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Fragment/HomeFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/View/Fragment/UserFragment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/viewModel/FoodViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/viewModel/MealCheckViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/viewModel/MealSetViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/java/shs/mobile01/mealmate_version11/viewModel/UserViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/app/src/test/java/shs/mobile01/mealmate_version11/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MealMate/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/MealMate/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +14,38 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="JiYooon" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="JiYooon" />
+                    <option name="lastUsedInstant" value="1684986718" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1684942132" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectId" id="2QCxGbyDAHxNj924cF4LA3tfdpW" />
   <component name="ProjectViewState">
@@ -96,5 +70,17 @@
       <updated>1684871271123</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
