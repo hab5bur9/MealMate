@@ -1,7 +1,5 @@
 package com.anonymous.mealmate.model.database;
 
-import static com.anonymous.mealmate.model.constants.Constants.DATABASE_NAME;
-
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -20,10 +18,12 @@ import com.anonymous.mealmate.model.entity.Meal;
 import com.anonymous.mealmate.model.entity.MealFood;
 import com.anonymous.mealmate.model.entity.User;
 
-// version = 1 : MealFood 테이블 추가 및 Meal 테이블 수정에 따른 버전 업
+// version = 1 : 처음 생성할 때 버전 1로 생성. 이후에 업데이트할 때마다 버전을 올려줘야 함.
+//@Database(entities = {Meal.class, Food.class, User.class}, version = 1, exportSchema = false)
 @Database(entities = {Meal.class, Food.class, User.class, MealFood.class}, version = 1, exportSchema = true)
 public abstract class AppDatabase extends RoomDatabase {
 
+    private static final String DATABASE_NAME = "test_database1";
     private static AppDatabase instance;
 
     public abstract MealDao mealDao();

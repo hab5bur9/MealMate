@@ -18,6 +18,10 @@ public class Food {
     private String food_company;
     private int foodLike = 0;   // default value: 0
 
+    public static final int  FOOD_NOT_LIKE = 0;
+
+    public static final int FOOD_LIKE = 1;
+
     public Food(String foodName, float food1serving, float foodKcal, float foodCarbohydrates, float foodProtein, float foodFat, String food_company, int foodLike) {
         this.foodName = foodName;
         this.food1serving = food1serving;
@@ -54,4 +58,7 @@ public class Food {
     // 인덱스를 수정하는 setter method
     public void setFoodIndex(int foodIndex) {this.foodIndex = foodIndex;}
 
+    public void setFoodLike(int foodLike) {
+        this.foodLike = foodLike;
+    }
 }

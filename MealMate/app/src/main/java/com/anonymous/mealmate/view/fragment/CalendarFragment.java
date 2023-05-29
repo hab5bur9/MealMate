@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
@@ -16,12 +15,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anonymous.mealmate.R;
+import com.anonymous.mealmate.databinding.FragmentCalendarBinding;
+import com.anonymous.mealmate.feature.Date;
 import com.anonymous.mealmate.model.entity.Meal;
 import com.anonymous.mealmate.view.adapter.MealAdapter;
 import com.anonymous.mealmate.viewmodel.MealCheckViewModel;
-import com.anonymous.mealmate.viewmodel.MealSetViewModel;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class CalendarFragment extends Fragment {
@@ -30,6 +30,8 @@ public class CalendarFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private MealAdapter mAdapter;
 
+    private FragmentCalendarBinding binding;
+
     public CalendarFragment() {
 
     }
@@ -37,21 +39,32 @@ public class CalendarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_calendar, container, false);
+        mealCheckViewModel = new ViewModelProvider(this).get(MealCheckViewModel.class);
+        binding = FragmentCalendarBinding.inflate(inflater,container,false);
+        binding.setLifecycleOwner(this);
+        binding.setMealCheckViewModel(mealCheckViewModel);
+        binding.setDate(Date.getInstance()); // 싱글톤으로 static 구현된 date 가져옴
 
-        // calendar view click event
-        ((CalendarView) view.findViewById(R.id.cv_meal_info)).setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        binding.cvMealInfo.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            //바인딩시 에러나서 일단 fragment에 작성
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String datetime = "" + month + "월 " + dayOfMonth + "일";
+                // 완성
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year,month,dayOfMonth);
 
-
+                Date date = Date.getInstance();
+                date.set(month,dayOfMonth,calendar.get(Calendar.DAY_OF_WEEK));
+                //
             }
         });
 
-        mAdapter = new MealAdapter(new MealAdapter.MealDiff());
+
+        mAdapter = new MealAdapter(new MealAdapter.MealDiff(),mealCheckViewModel,this);
         //recycler view set up
-        mRecyclerView = view.findViewById(R.id.rv_meal_loading);
+//        mRecyclerView = view.findViewById(R.id.rv_meal_loading);
+
+        mRecyclerView=binding.includeMealList.rvMealLoading;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.scrollToPosition(((LinearLayoutManager)mRecyclerView.getLayoutManager()).findFirstCompletelyVisibleItemPosition());
         mRecyclerView.setAdapter(mAdapter);
@@ -59,7 +72,7 @@ public class CalendarFragment extends Fragment {
 
         // observer setup
 
-        mealCheckViewModel = new ViewModelProvider(this).get(MealCheckViewModel.class);
+
         mealCheckViewModel.getAllMeals().observe(getViewLifecycleOwner(), new Observer<List<Meal>>() {
             @Override
             public void onChanged(List<Meal> meals) {
@@ -72,7 +85,10 @@ public class CalendarFragment extends Fragment {
 
         // observer end
 
+        //eventListener
 
-        return view;
+
+//        return view;
+        return binding.getRoot();
     }
 }

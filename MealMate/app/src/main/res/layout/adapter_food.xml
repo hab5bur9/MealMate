@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?><!-- 검색창에서 보이는 개별 음식 정보 -->
+<!-- 바인딩 적용중-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--binding 생성후 setFood(), setFoodViewModel 해줘야 함-->
+        <variable
+            name="Food"
+            type="com.anonymous.mealmate.model.entity.Food" />
+
+        <variable
+            name="FoodViewModel"
+            type="com.anonymous.mealmate.viewmodel.FoodViewModel" />
+
+        <import type="android.R.drawable" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,10 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="메뉴 이름"
+            android:text="@{Food.foodName}"
             android:textSize="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="메뉴 이름" />
 
         <!--하트-->
         <Button
@@ -27,9 +42,12 @@
             android:layout_width="40dp"
             android:layout_height="34dp"
             android:layout_margin="10dp"
-            android:background="@drawable/btn_heart_empty"
+            android:background="@{Food.foodLike==0 ? @drawable/btn_heart_empty : @drawable/btn_heart_full}"
+            android:onClick="@{() -> FoodViewModel.onLikeStateChange(Food)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <!--        app:likeStateChanged="false"-->
+        <!--        android:background="@{Food.foodLike == 0 ? drawable.}"-->
 
         <!-- 탄수화물 -->
         <LinearLayout
@@ -53,7 +71,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="00" />
+                android:text="@{``+Food.foodCarbohydrates}"
+                tools:text="00" />
 
         </LinearLayout>
 
@@ -77,7 +96,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="00" />
+                android:text="@{``+Food.foodProtein}"
+                tools:text="00" />
 
         </LinearLayout>
 
@@ -101,7 +121,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="00" />
+                android:text="@{``+Food.foodFat}"
+                tools:text="00" />
         </LinearLayout>
 
         <!-- 칼로리 -->
@@ -124,7 +145,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="00" />
+                android:text="@{``+Food.foodKcal}"
+                tools:text="00" />
 
         </LinearLayout>
 
@@ -137,9 +159,10 @@
             android:adjustViewBounds="true"
             android:background="@drawable/btn_food_add"
             android:scaleType="fitCenter"
+            android:onClick="@{() -> FoodViewModel.onAddFood(Food)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
-
+        <!--onclick 필요-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

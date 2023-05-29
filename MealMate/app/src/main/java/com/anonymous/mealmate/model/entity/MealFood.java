@@ -1,8 +1,10 @@
 package com.anonymous.mealmate.model.entity;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "mealFood", primaryKeys = {"mealIndex", "foodIndex"}, foreignKeys = {@ForeignKey(entity = Meal.class,
         parentColumns = "mealIndex", childColumns = "mealIndex"), @ForeignKey(entity = Food.class,
@@ -21,11 +23,27 @@ public class MealFood {
     }
 
     // getter and setter methods...
-    public int getMealIndex() {return mealIndex;}
-    public int getFoodIndex() {return foodIndex;}
-    public int getMealFoodAmount() {return mealFoodAmount;}
-    public void setMealFoodAmount(int mealFoodAmount) {this.mealFoodAmount = mealFoodAmount;}
-    public int getChecked() {return checked;}
-    public void setChecked(int checked) {this.checked = checked;}
-}
+    public int getMealIndex() {
+        return mealIndex;
+    }
 
+    public int getFoodIndex() {
+        return foodIndex;
+    }
+
+    public int getMealFoodAmount() {
+        return mealFoodAmount;
+    }
+
+    public void setMealFoodAmount(int mealFoodAmount) {
+        this.mealFoodAmount = mealFoodAmount;
+    }
+
+    public int getChecked() {
+        return checked;
+    }
+
+    public void setChecked(int checked) {
+        this.checked = checked;
+    }
+}

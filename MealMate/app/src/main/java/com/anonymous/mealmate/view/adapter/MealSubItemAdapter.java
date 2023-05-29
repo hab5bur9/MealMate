@@ -7,39 +7,55 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anonymous.mealmate.R;
+import com.anonymous.mealmate.databinding.AdapterMealsubitemBinding;
 import com.anonymous.mealmate.model.entity.Food;
+import com.anonymous.mealmate.model.entity.Meal;
+import com.anonymous.mealmate.viewmodel.MealSetViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MealSubItemAdapter extends ListAdapter<Food,MealSubItemAdapter.MealSubItemViewHolder> {
+    private MealSetViewModel mealSetViewModel;
+    private LifecycleOwner  lifecycleOwner;
+
+    // 에러방지용 초기값
+    private Meal meal = null;
+
+    public Meal getMeal() {
+        return meal;
+    }
+
+    public void setMeal(Meal meal) {
+        this.meal = meal;
+    }
 
     public static class MealSubItemViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvMealSubItemInfo;
-        private Button btnMealSubItemDelete;
 
-        public MealSubItemViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvMealSubItemInfo = itemView.findViewById(R.id.tv_meal_subItem_info);
-            btnMealSubItemDelete = itemView.findViewById(R.id.btn_meal_subItem_delete);
+
+
+        private AdapterMealsubitemBinding binding;
+
+        public MealSubItemViewHolder(@NonNull AdapterMealsubitemBinding binding) {
+            super(binding.getRoot());
+
+
+            this.binding = binding;
         }
 
-        public static MealSubItemViewHolder onCreate(ViewGroup parent) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_mealsubitem, parent, false);
-            return new MealSubItemViewHolder(view);
-        }
 
         public void bind(Food food) {
-            tvMealSubItemInfo.setText(food.getFoodName());
+            binding.setFood(food);
         }
     }
 
-    public MealSubItemAdapter() {
+    public MealSubItemAdapter(MealSetViewModel mealSetViewModel, LifecycleOwner lifecycleOwner) {
         super(new DiffUtil.ItemCallback<Food>() {
             @Override
             public boolean areItemsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
@@ -53,26 +69,26 @@ public class MealSubItemAdapter extends ListAdapter<Food,MealSubItemAdapter.Meal
                 return false;
             }
         });
+        this.mealSetViewModel = mealSetViewModel;
+        this.lifecycleOwner = lifecycleOwner;
     }
 
     @NonNull
     @Override
     public MealSubItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return MealSubItemViewHolder.onCreate(parent);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        AdapterMealsubitemBinding binding = AdapterMealsubitemBinding.inflate(layoutInflater,parent,false);
+        binding.setLifecycleOwner(lifecycleOwner);
+        binding.setMealSetViewModel(mealSetViewModel);
+        // 식단정보를 초기값으로 세팅
+        binding.setMeal(meal);
+        return new MealSubItemViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MealSubItemViewHolder holder, int position) {
         Food currentFood = getItem(position);
         holder.bind(currentFood);
-        holder.btnMealSubItemDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //delete Food
-                //notifyItemRemoved(position);
-            }
-        });
-
     }
 
 

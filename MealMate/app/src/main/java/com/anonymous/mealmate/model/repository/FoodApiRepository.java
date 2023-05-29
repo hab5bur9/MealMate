@@ -1,12 +1,14 @@
 package com.anonymous.mealmate.model.repository;
 
-import static com.anonymous.mealmate.model.constants.Constants.*;
+
+import static com.anonymous.mealmate.constants.Constants.*;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.anonymous.mealmate.model.api.FoodApiHelper;
+import com.anonymous.mealmate.api.FoodApiHelper;
+
 import com.anonymous.mealmate.model.entity.Food;
 
 import java.util.ArrayList;
@@ -86,8 +88,17 @@ public class FoodApiRepository {
     private List<Food> convertItemsToFood(List<FoodApiHelper.ResponseClass.Body.Item> items) {
         List<Food> foods = new ArrayList<>();
         for (FoodApiHelper.ResponseClass.Body.Item item : items) {
-            foods.add(new Food(item.getFood_name(), item.getFood_1serving(), item.getFood_kcal(), item.getFood_carbohydrates(), item.getFood_protein(), item.getFood_fat(), item.getFood_company()));
+            foods.add(new Food(
+                    item.getFood_name(),
+                    item.getFood_1serving(),
+                    item.getFood_kcal(),
+                    item.getFood_carbohydrates(),
+                    item.getFood_protein(),
+                    item.getFood_fat(),
+                    item.getFood_company()
+            ));
         }
         return foods;
     }
 }
+

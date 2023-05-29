@@ -1,9 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- 홈/캘린더 식단 list -->
+<?xml version="1.0" encoding="utf-8"?><!-- 홈/캘린더 식단 list -->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="MealCheckViewModel"
+            type="com.anonymous.mealmate.viewmodel.MealCheckViewModel" />
+        <variable
+            name="Date"
+            type="com.anonymous.mealmate.feature.Date" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,17 +20,19 @@
 
         <include
             android:id="@+id/include_datetime_info"
+            layout="@layout/include_datetime"
+            app:Date="@{Date}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/include_datetime"/>
+            android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_meal_loading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/include_datetime_info"
-            tools:listitem="@layout/adapter_meal"
-            tools:itemCount="3"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/adapter_meal" />
 
         <Button
             android:id="@+id/btn_meal_modify"
@@ -29,8 +40,8 @@
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:onClick="onStartActivity"
             android:background="@drawable/btn_modify"
+            android:onClick="@{() -> MealCheckViewModel.onChangeMealPlan()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rv_meal_loading" />

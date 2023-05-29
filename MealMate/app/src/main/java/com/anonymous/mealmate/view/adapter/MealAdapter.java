@@ -9,70 +9,94 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anonymous.mealmate.R;
+import com.anonymous.mealmate.databinding.AdapterMealBinding;
+
 import com.anonymous.mealmate.model.entity.Meal;
 import com.anonymous.mealmate.viewmodel.MealCheckViewModel;
 
 
 public class MealAdapter extends ListAdapter<Meal,MealAdapter.MealViewHolder>{
-
+    private LifecycleOwner lifecycleOwner;
+    private MealCheckViewModel mealCheckViewModel;
 
     public static class MealViewHolder extends RecyclerView.ViewHolder{
-        private TextView tvMealInfo;
-        private LinearLayout llMealMenu;
-        private Button btnMealCheck;
+//        private TextView tvMealInfo;
+//        private LinearLayout llMealMenu;
+//        private Button btnMealCheck;
+
+
+        private AdapterMealBinding binding;
 
         public MealViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            tvMealInfo = itemView.findViewById(R.id.tv_meal_info);
-            llMealMenu = itemView.findViewById(R.id.ll_meal_menu);
-            btnMealCheck = itemView.findViewById(R.id.btn_meal_check);
+        // not use
+//            tvMealInfo = itemView.findViewById(R.id.tv_meal_info);
+//            llMealMenu = itemView.findViewById(R.id.ll_meal_menu);
+//            btnMealCheck = itemView.findViewById(R.id.btn_meal_check);
+        }
+        public MealViewHolder(@NonNull AdapterMealBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
         public void bind(Meal meal){
             // 모두 수정 필요
             // data setting method
-            tvMealInfo.setText("1번째 끼니");
+//            tvMealInfo.setText("1번째 끼니");
             //meal 에서 음식정보를 찾아오는 로직 필요
 
             //테이블이 약간 이상하다
-            TextView testText = new TextView(llMealMenu.getContext());
-            testText.setText("1. Test Data");
+//            TextView testText = new TextView(llMealMenu.getContext());
+//            testText.setText("1. Test Data");
 
             // list의 옵션 삭제시 뷰가 안사라지고 계속 add되고 있음 수정필요
-            llMealMenu.addView(testText);
+//            llMealMenu.addView(testText);
+            binding.setMeal(meal);
+            //binding.setFoods();
+        }
+        private AdapterMealBinding getBinding(){
+            return binding;
         }
 
-        public static MealViewHolder onCreate(ViewGroup parent){
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_meal, parent,false);
-            return new MealViewHolder(view);
-        }
+//        public static MealViewHolder onCreate(ViewGroup parent){
+//            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_meal, parent,false);
+//            return new MealViewHolder(view);
+//        }
     }
-    public MealAdapter(@NonNull DiffUtil.ItemCallback<Meal> diffCallback) {
+    public MealAdapter(@NonNull DiffUtil.ItemCallback<Meal> diffCallback,MealCheckViewModel mealCheckViewModel, LifecycleOwner lifecycleOwner) {
         super(diffCallback);
+        this.mealCheckViewModel= mealCheckViewModel;
+        this.lifecycleOwner =lifecycleOwner;
     }
 
     @NonNull
     @Override
     public MealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return MealViewHolder.onCreate(parent);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        AdapterMealBinding binding = AdapterMealBinding.inflate(inflater);
+        binding.setLifecycleOwner(lifecycleOwner);
+        binding.setMealCheckViewModel(mealCheckViewModel);
+//        binding.setFoods(new Foods());
+//        return MealViewHolder.onCreate(parent);
+        return new MealViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MealViewHolder holder, int position) {
         Meal currentMeal = getItem(position);
         holder.bind(currentMeal);
-        holder.btnMealCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //notifyItemRemoved(position);
-            }
-        });
+//        holder.btnMealCheck.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //notifyItemRemoved(position);
+//            }
+//        });
     }
     public static class MealDiff extends DiffUtil.ItemCallback<Meal>{
         @Override
@@ -85,11 +109,11 @@ public class MealAdapter extends ListAdapter<Meal,MealAdapter.MealViewHolder>{
             return oldItem.getMealIndex()==newItem.getMealIndex();
         }
     }
-
-    public Meal getItemTest(int position){
-        return getItem(position);
-    }
 }
+
+//    public Meal getItemTest(int position){
+//        return getItem(position);
+//    }
 //public class MealAdapter extends RecyclerView.Adapter<MealAdapter.ViewHolder> {
 //    // ViewModel의 liveData를 출력하기 위한 어댑터
 //    private final int layoutName = R.layout.adapter_meal;
