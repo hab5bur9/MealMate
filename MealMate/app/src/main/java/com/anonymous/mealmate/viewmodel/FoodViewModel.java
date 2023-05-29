@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import com.anonymous.mealmate.api.FoodApiHelper;
 import com.anonymous.mealmate.feature.ControlViewState;
@@ -46,22 +47,13 @@ public class FoodViewModel extends AndroidViewModel {
         return foodApiRepository.getFoodNtrItdntList(foodName);
     }
 
-    // 사용자가 음식 이름을 입력하면 그와 관련된 모든 음식을 검색 결과로 반환함.
+    /*// 사용자가 음식 이름을 입력하면 그와 관련된 모든 음식을 검색 결과로 반환함.
     public LiveData<List<Food>> onSearchFood(String foodName) {
         return foodApiRepository.searchFood(foodName);
-    }
+    }*/
 
     public void onSearchFood(View view, String inputFoodName){
-        //Food Name 전달 받아 repository에 데이터 요청하는 메소드
-        //db search logic
-        //TODO 레파지토리에 food 검색 기능 연결
-        //foodRepository.searchFood(foodName);
-
-
-        //test
-        Toast.makeText(view.getContext(), inputFoodName, Toast.LENGTH_SHORT).show();
-        //foodRepository.insertFood(new Food(inputFoodName,300,200,1000,444));
-        //String foodName = ((EditText)view).getText().toString();
+        LiveData<List<Food>> searchResults = foodApiRepository.searchFood(inputFoodName);
     }
 
     // 검색결과와 에러메시지를 가져옴.
@@ -104,7 +96,6 @@ public class FoodViewModel extends AndroidViewModel {
 
     public void selectFood(Food food) { selectedFood.setValue(food); } // 선택된 음식을 설정하는 메소드 추가
     public LiveData<Food> getSelectedFood() { return selectedFood; } // 선택된 음식을 가져오는 메소드 추가
-
 
 
     //xml binding method, do not erase

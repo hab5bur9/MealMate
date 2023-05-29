@@ -56,6 +56,14 @@ public class FoodFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         //recycler view end
 
+        foodViewModel.getSearchResults().observe(getViewLifecycleOwner(), new Observer<List<Food>>() {
+            @Override
+            public void onChanged(List<Food> foods) {
+                mAdapter.setFoods(foods);
+
+                Toast.makeText(getContext(), "APIAcessComplete!!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //observer setup
         foodViewModel.getAllFoods().observe(getViewLifecycleOwner(), new Observer<List<Food>>() {

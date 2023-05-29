@@ -61,4 +61,21 @@ public class Food {
     public void setFoodLike(int foodLike) {
         this.foodLike = foodLike;
     }
+
+    // equals method
+    public boolean equals(Object o) {
+        float EPSILON = 0.1f;
+        if (o == this) return true;
+        if (!(o instanceof Food)) return false;
+        Food other = (Food) o;
+        if (!this.foodName.equals(other.foodName)) return false;
+        if (Math.abs(this.food1serving - other.food1serving) > EPSILON) return false;
+        if (Math.abs(this.foodKcal - other.foodKcal) > EPSILON) return false;
+        if (Math.abs(this.foodCarbohydrates - other.foodCarbohydrates) > EPSILON) return false;
+        if (Math.abs(this.foodProtein - other.foodProtein) > EPSILON) return false;
+        if (Math.abs(this.foodFat - other.foodFat) > EPSILON) return false;
+        if (!this.food_company.equals(other.food_company)) return false;
+        if (this.foodLike != other.foodLike) return false;
+        return true;
+    }
 }
