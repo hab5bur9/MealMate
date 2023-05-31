@@ -65,7 +65,10 @@ public class FoodActivity extends AppCompatActivity {
         ControlViewState.getInstance().getStateSignalLiveData().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
-
+                    switch (integer){
+                        case ControlViewState.INTENT_FINISH:
+                            finish();
+                    }
             }
         });
 

@@ -30,7 +30,7 @@ public class FoodViewModel extends AndroidViewModel {
     private final MutableLiveData<Food> foodLiveData = new MutableLiveData<>(); // 특정 음식의 좋아요 여부를 나타내는 LiveData 추가
 
     // 생성자
-    public FoodViewModel (Application application) {
+    public FoodViewModel(Application application) {
         super(application);
         foodRepository = FoodRepository.getInstance(application);
         foodApiRepository = FoodApiRepository.getInstance(application);
@@ -51,7 +51,7 @@ public class FoodViewModel extends AndroidViewModel {
         return foodApiRepository.searchFood(foodName);
     }*/
 
-    public void onSearchFood(View view, String inputFoodName){
+    public void onSearchFood(View view, String inputFoodName) {
         LiveData<List<Food>> searchResults = foodApiRepository.searchFood(inputFoodName);
     }
 
@@ -65,9 +65,10 @@ public class FoodViewModel extends AndroidViewModel {
     }
 
 
-
     //TODO : Food
-    public LiveData<List<Food>> getAllFoods() { return allFoods; }
+    public LiveData<List<Food>> getAllFoods() {
+        return allFoods;
+    }
 
     // DB에 넣을 때 같은 음식이 있는지 확인하고, 없으면 삽입.
     public void insert(Food food) {
@@ -83,28 +84,42 @@ public class FoodViewModel extends AndroidViewModel {
         }).start();
     }
 
-    public void update(Food food) { foodRepository.updateFood(food); }
+    public void update(Food food) {
+        foodRepository.updateFood(food);
+    }
 
-    public void delete(Food food) { foodRepository.deleteFood(food); }
+    public void delete(Food food) {
+        foodRepository.deleteFood(food);
+    }
 
     // 특정 음식의 좋아요 여부를 가져옵니다.
-    public LiveData<List<Food>> getLikedFoods() { return foodRepository.getUserLikedFoods(); }
+    public LiveData<List<Food>> getLikedFoods() {
+        return foodRepository.getUserLikedFoods();
+    }
+
     // 특정 음식의 좋아요 여부를 업데이트합니다.
-    public void setClickedFood(Food food) {foodLiveData.setValue(food);}
+    public void setClickedFood(Food food) {
+        foodLiveData.setValue(food);
+    }
 
 
-    public void selectFood(Food food) { selectedFood.setValue(food); } // 선택된 음식을 설정하는 메소드 추가
-    public LiveData<Food> getSelectedFood() { return selectedFood; } // 선택된 음식을 가져오는 메소드 추가
+    public void selectFood(Food food) {
+        selectedFood.setValue(food);
+    } // 선택된 음식을 설정하는 메소드 추가
+
+    public LiveData<Food> getSelectedFood() {
+        return selectedFood;
+    } // 선택된 음식을 가져오는 메소드 추가
 
     //xml binding method, do not erase
-    //binding Text complete, enable to user
+    //binding Text complete, enable to use
 
     //xml binding method, do not erase
-    public void onLikeStateChange(Food food){
+    public void onLikeStateChange(Food food) {
         //Food Adapter에 하트 버튼을 눌렀을때 Food db를 업데이트 해주는 메서드
-        if(food.getFoodLike() == Food.FOOD_NOT_LIKE)
+        if (food.getFoodLike() == Food.FOOD_NOT_LIKE)
             food.setFoodLike(Food.FOOD_LIKE);
-        else if(food.getFoodLike() == Food.FOOD_LIKE) {
+        else if (food.getFoodLike() == Food.FOOD_LIKE) {
             food.setFoodLike(Food.FOOD_NOT_LIKE);
         }
         //db upload
@@ -113,7 +128,7 @@ public class FoodViewModel extends AndroidViewModel {
         //test
     }
 
-    public void onAddFood(Food food){
+    public void onAddFood() {
         ControlViewState.getInstance().activeIntentSignal(ControlViewState.INTENT_FINISH);
         Toast.makeText(getApplication().getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
     }
